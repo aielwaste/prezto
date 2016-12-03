@@ -18,14 +18,14 @@ version is 4.3.17.
   2. Clone the repository:
         
         export ZDOTDIR="${HOME}/.dotfiles/config/zsh"
-        git clone --recursive https://github.com/andrewbell8/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+        git clone --recursive https://github.com/andrewbell8/prezto.git "${ZDOTDIR}/.zprezto"
 
   3. Create a new Zsh configuration by copying the Zsh configuration files
      provided:
 
         setopt EXTENDED_GLOB
         for rcfile in "${ZDOTDIR}"/.zprezto/runcoms/^README.md(.N); do
-          ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+          ln -s "$rcfile" "${$HOME}/.${rcfile:t}"
         done
 
   4. Set Zsh as your default shell:
