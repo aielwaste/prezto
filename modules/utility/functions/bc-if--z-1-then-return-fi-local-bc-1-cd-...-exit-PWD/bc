@@ -1,0 +1,7 @@
+bc() {
+  if [ -z "$1" ]; then
+    return
+  fi
+  local bc=$1
+  cd ... || exit "${PWD/\/$bc\/*//$bc}"
+}
