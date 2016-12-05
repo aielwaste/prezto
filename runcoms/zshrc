@@ -21,6 +21,16 @@ else
   alias ls="ls -bFkGlah"
 fi
 
+ostype() {
+  case "$OSTYPE" in
+    solaris*) echo "SOLARIS" ;;
+    darwin*)  echo "OSX" ;; 
+    linux*)   echo "LINUX" ;;
+    msys*)     echo "WINDOWS" ;;
+    *)        echo "unknown: $OSTYPE" ;;
+  esac
+}
+
 #=== Working dir for developing
 PZT_PROJECT_DIR=${HOME}/code
 

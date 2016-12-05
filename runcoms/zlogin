@@ -21,3 +21,6 @@ if (( $+commands[fortune] )); then
     print
   fi
 fi
+
+command clear 
+command archey
