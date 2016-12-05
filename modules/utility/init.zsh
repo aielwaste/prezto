@@ -5,19 +5,20 @@
 #   Robby Russell <robby@planetargon.com>
 #   Suraj N. Kurapati <sunaku@gmail.com>
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
+#   Andrew Bell <andrewbell8@gmail.com>
 #
 
-# Load dependencies.
+# ===== Load Dependencies ===== 
 pmodload 'helper' 'spectrum'
 
-# Correct commands.
+# ===== Correct Commands =====
 setopt CORRECT
 
 #
 # Aliases
 #
 
-# Disable correction.
+# ===== Disable correction =====
 alias ack='nocorrect ack'
 alias cd='nocorrect cd'
 alias cp='nocorrect cp'
@@ -33,7 +34,7 @@ alias mv='nocorrect mv'
 alias mysql='nocorrect mysql'
 alias rm='nocorrect rm'
 
-# Disable globbing.
+# ===== Disable Globbing =====
 alias bower='noglob bower'
 alias fc='noglob fc'
 alias find='noglob find'
@@ -45,7 +46,7 @@ alias rsync='noglob rsync'
 alias scp='noglob scp'
 alias sftp='noglob sftp'
 
-# Define general aliases.
+# ===== Define General Aliases =====
 alias _='sudo'
 alias b='${(z)BROWSER}'
 alias cp="${aliases[cp]:-cp} -i"
@@ -59,9 +60,9 @@ alias pu='pushd'
 alias rm="${aliases[rm]:-rm} -i"
 alias type='type -a'
 
-# ls
+# ===== LS =====
 if is-callable 'dircolors'; then
-  # GNU Core Utilities
+  # ===== GNU Core Utilities =====
   alias ls='ls --group-directories-first'
 
   if zstyle -t ':prezto:module:utility:ls' color; then
@@ -76,7 +77,7 @@ if is-callable 'dircolors'; then
     alias ls="${aliases[ls]:-ls} -F"
   fi
 else
-  # BSD Core Utilities
+  # ===== BSD Core Utilities =====
   if zstyle -t ':prezto:module:utility:ls' color; then
     # Define colors for BSD ls.
     export LSCOLORS='exfxcxdxbxGxDxabagacad'
@@ -102,7 +103,7 @@ alias lc='lt -c'         # Lists sorted by date, most recent last, shows change 
 alias lu='lt -u'         # Lists sorted by date, most recent last, shows access time.
 alias sl='ls'            # I often screw this up.
 
-# Grep
+# ===== Grep =====
 if zstyle -t ':prezto:module:utility:grep' color; then
   export GREP_COLOR='37;45'           # BSD.
   export GREP_COLORS="mt=$GREP_COLOR" # GNU.
@@ -110,7 +111,7 @@ if zstyle -t ':prezto:module:utility:grep' color; then
   alias grep="${aliases[grep]:-grep} --color=auto"
 fi
 
-# Mac OS X Everywhere
+# ===== Mac OS X Everywhere =====
 if [[ "$OSTYPE" == darwin* ]]; then
   alias o='open'
 elif [[ "$OSTYPE" == cygwin* ]]; then
@@ -132,14 +133,14 @@ fi
 alias pbc='pbcopy'
 alias pbp='pbpaste'
 
-# File Download
+# ===== File Download =====
 if (( $+commands[curl] )); then
   alias get='curl --continue-at - --location --progress-bar --remote-name --remote-time'
 elif (( $+commands[wget] )); then
   alias get='wget --continue --progress=bar --timestamping'
 fi
 
-# Resource Usage
+# ===== Resource Usage =====
 alias df='df -kh'
 alias du='du -kh'
 
@@ -155,45 +156,51 @@ else
   fi
 fi
 
+#
 # Miscellaneous
+#
 
 # Serves a directory via HTTP.
 alias http-serve='python -m SimpleHTTPServer'
 
-#
-# Functions
-#
-
+# ===== Functions =====
+# ===== mkdcd =====
 # Makes a directory and changes to it.
 function mkdcd {
   [[ -n "$1" ]] && mkdir -p "$1" && builtin cd "$1"
 }
 
+# ===== CDLS =====
 # Changes to a directory and lists its contents.
 function cdls {
   builtin cd "$argv[-1]" && ls "${(@)argv[1,-2]}"
 }
 
+# ===== PUSHDLS =====
 # Pushes an entry onto the directory stack and lists its contents.
 function pushdls {
   builtin pushd "$argv[-1]" && ls "${(@)argv[1,-2]}"
 }
 
+# ===== POPDLS =====
 # Pops an entry off the directory stack and lists its contents.
 function popdls {
   builtin popd "$argv[-1]" && ls "${(@)argv[1,-2]}"
 }
 
+# ===== SLIT =====
 # Prints columns 1 2 3 ... n.
 function slit {
   awk "{ print ${(j:,:):-\$${^@}} }"
 }
 
+# ===== FIND-EXEC =====
 # Finds files and executes a command on them.
 function find-exec {
   find . -type f -iname "*${1:-}*" -exec "${2:-file}" '{}' \;
 }
 
+# ===== PSU =====
 # Displays user owned processes status.
 function psu {
   ps -U "${1:-$LOGNAME}" -o 'pid,%cpu,%mem,command' "${(@)argv[2,-1]}"
