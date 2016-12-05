@@ -1,13 +1,70 @@
+# Customize to your needs...
 #
 # Executes commands at the start of an interactive session.
 #
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
+#   Pablo Olmos de Aguilera <pablo at glatelier dot org>
+#   Andrew Bell <andrewbell8@gmail.com>
 #
+export ZDOTDIR="${HOME}/.dotfiles/zsh"
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
 
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+# base utility function
+function exists() {
+  test -x "$(command -v "$1")"
+}
+
+alias tree="tree -F --dirsfirst"
+if ls --color >/dev/null 2>/dev/null; then
+  alias ls="ls -lahbFk --color=auto --group-directories-first"
+else
+  alias ls="ls -bFkGlah"
 fi
 
-# Customize to your needs...
+#=== Working dir for developing
+PZT_PROJECT_DIR=${HOME}/code
+
+#=== Main
+typeset -U config_files config_dirs
+
+# Last alternative is to use an array to hold the dirs, the issue here is that you
+# are obligued to ue a nested `for` loop, to traverse theme
+config_dirs=( settings aliases zle after )
+config_dirs=( $ZDOTDIR/${^config_dirs} )        # prepend the full directory
+
+# for dir in $config_dirs; do
+#   for file in $dir/!(999*).*sh(N); do
+#     source $file
+#   done
+# done
+
+# load config files
+function source_files_from {
+  local dir=$1
+  for file in $dir/[!999]*.*sh(N); do
+    source $file
+  done
+}
+
+for dir in $config_dirs; do
+  source_files_from $dir
+done
+
+#=== VTE: In Arch Linux the package is called `vte3`.
+[[ -s /etc/profile.d/vte.sh ]] && source /etc/profile.d/vte.sh
+
+#=== Third Party
+#=== Requirement to make the pwd segment from tmux-powerline work
+if [[ -s "${HOME}/.tmux-powerlinerc" ]]; then
+  PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+fi
+
+unset functions_path config_{files,dirs}
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/init.zsh"
+else
+  echo 'Prezto not installed!.'
+fi
