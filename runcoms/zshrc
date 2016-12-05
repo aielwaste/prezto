@@ -7,7 +7,6 @@
 #   Pablo Olmos de Aguilera <pablo at glatelier dot org>
 #   Andrew Bell <andrewbell8@gmail.com>
 #
-export ZDOTDIR="${HOME}/.dotfiles/zsh"
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
 
 # base utility function
