@@ -22,5 +22,4 @@ if (( $+commands[fortune] )); then
   fi
 fi
 
-command clear 
-command archey
+clear && archey -l
