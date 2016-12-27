@@ -6,46 +6,72 @@
 #   Andrew Bell <andrewbell8@gmail.com>
 #
 
-#=== BROWSER
+# base utility function
+function exists() {
+  test -x "$(command -v "$1")"
+}
+
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+
+alias tree="tree -F --dirsfirst"
+if ls --color >/dev/null 2>/dev/null; then
+  alias ls="ls -lahbFk --color=auto --group-directories-first"
+else
+  alias ls="ls -bFkGlah"
+fi
+
+# Working dir for developing
+PROJECT_DIR=${HOME}/code
+
+# VTE: In Arch Linux the package is called `vte3`.
+[[ -s /etc/profile.d/vte.sh ]] && source /etc/profile.d/vte.sh
+
+# Third Party
+# Requirement to make the pwd segment from tmux-powerline work
+if [[ -s "${HOME}/.tmux-powerlinerc" ]]; then
+  PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+fi
+
+# BROWSER
 if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
 fi
 
-#=== EDITORS
+# EDITORS
 export EDITOR='mvim'
 export VISUAL='subl'
 export PAGER='less'
 
-#=== LANGUAGE
+# LANGUAGE
 if [[ -z "$LANG" ]]; then
   export LANG='en_US.UTF-8'
 fi
 
-#=== Prevent these from being duplicates
+# Prevent these from being duplicates
 typeset -gU cdpath fpath mailpath path
 
-#=== CDPATH: Set the the list of directories that cd searches.
+# CDPATH: Set the the list of directories that cd searches.
 cdpath=(
   $cdpath
 )
 
-#=== PATH: Set the list of directories that Zsh searches for programs.
+# PATH: Set the list of directories that Zsh searches for programs.
 path=(
   /usr/local/{bin,sbin}
   $path
 )
 
-#=== LESS
+# LESS
 # Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
 # Remove -X and -F (exit if the content fits on one screen) to enable it.
 export LESS='-F -g -i -M -R -S -w -X -z-4'
 
-#=== `lesspipe` and `lesspipe.sh` as either might exist on a system.
+# `lesspipe` and `lesspipe.sh` as either might exist on a system.
 if (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
 
-#=== TEMP
+# TEMP
 if [[ ! -d "$TMPDIR" ]]; then
   export TMPDIR="/tmp/$LOGNAME"
   mkdir -p -m 700 "$TMPDIR"
