@@ -22,4 +22,5 @@ if (( $+commands[fortune] )); then
   fi
 fi
 
-clear && archey -l
+alias archey='archey -l'
+archey
