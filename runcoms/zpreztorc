@@ -7,7 +7,7 @@
 #
 
 # Set case-sensitivity for completion, history lookup, etc.
-zstyle ':prezto:*:*' case-sensitive 'no'
+# zstyle ':prezto:*:*' case-sensitive 'yes'
 
 # Color output (auto set to 'no' on dumb terminals).
 zstyle ':prezto:*:*' color 'yes'
@@ -24,6 +24,7 @@ zstyle ':prezto:load' pmodule \
   'environment' \
   'terminal' \
   'git' \
+  'history-substring-search' \
   'autosuggestions' \
   'homebrew' \
   'editor' \
@@ -35,22 +36,23 @@ zstyle ':prezto:load' pmodule \
   'prompt'
 
 
-#=== Autosuggestions: Set the query found color.
+# Autosuggestions
+zstyle ':prezto:module:autosuggestions' color 'yes'
 zstyle ':prezto:module:autosuggestions:color' found ''
 
-#=== Editor: Set the key mapping style to 'emacs' or 'vi'.
+# Editor: Set the key mapping style to 'emacs' or 'vi'.
 zstyle ':prezto:module:editor' key-bindings 'emacs'
 
-#=== Auto convert .... to ../..
+# Auto convert .... to ../..
 zstyle ':prezto:module:editor' dot-expansion 'yes'
 
-#=== Git Ignore submodules when they are 'dirty', 'untracked', 'all', or 'none'.
+# Git Ignore submodules when they are 'dirty', 'untracked', 'all', or 'none'.
 zstyle ':prezto:module:git:status:ignore' submodules 'all'
 
-#=== GNU Utility: Set the command prefix on non-GNU systems.
+# GNU Utility: Set the command prefix on non-GNU systems.
 zstyle ':prezto:module:gnu-utility' prefix 'g'
 
-#=== History Substring Search: Set the query found color.
+# History Substring Search: Set the query found color.
 zstyle ':prezto:module:history-substring-search:color' found ''
 
 # Set the query not found color.
@@ -59,26 +61,26 @@ zstyle ':prezto:module:history-substring-search:color' not-found ''
 # Set the search globbing flags.
 zstyle ':prezto:module:history-substring-search' globbing-flags ''
 
-#=== Pacman: Set the Pacman frontend.
+# Pacman: Set the Pacman frontend.
 # zstyle ':prezto:module:pacman' frontend 'yaourt'
 
-#=== Prompt
+# Prompt
 zstyle ':prezto:module:prompt' theme 'agnoster'
 
 
-#=== Ruby: Auto switch the Ruby version on directory change.
+# Ruby: Auto switch the Ruby version on directory change.
 zstyle ':prezto:module:ruby:chruby' auto-switch 'yes'
 
-#=== Screen: Auto start a session when Zsh is launched in a local terminal.
+# Screen: Auto start a session when Zsh is launched in a local terminal.
 zstyle ':prezto:module:screen:auto-start' local 'yes'
 
-#=== Screen: Auto start a session when Zsh is launched in a SSH connection.
+# Screen: Auto start a session when Zsh is launched in a SSH connection.
 zstyle ':prezto:module:screen:auto-start' remote 'yes'
 
 #===SSH: Set the SSH identities to load into the agent.
 zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_rsa2' 'id_github'
 
-#=== Syntax Highlighters.
+# Syntax Highlighters.
 # By default, only the main highlighter is enabled.
 # zstyle ':prezto:module:syntax-highlighting' highlighters \
 #   'main' \
@@ -95,20 +97,20 @@ zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_rsa2' 'id_github'
 #   'function' 'bg=blue'
 
 
-#=== Terminal: Auto set the tab and window titles.
+# Terminal: Auto set the tab and window titles.
 zstyle ':prezto:module:terminal' auto-title 'yes'
 
-#=== Terminal: Set the window title format.
+# Terminal: Set the window title format.
 zstyle ':prezto:module:terminal:window-title' format '%n@%m: %s'
 
-#=== Terminal: Set the tab title format.
+# Terminal: Set the tab title format.
 zstyle ':prezto:module:terminal:tab-title' format '%m: %s'
 
-#=== Tmux: Auto start a session when Zsh is launched in a local terminal.
+# Tmux: Auto start a session when Zsh is launched in a local terminal.
 zstyle ':prezto:module:tmux:auto-start' local 'yes'
 
-#=== Tmux: Auto start a session when Zsh is launched in a SSH connection.
+# Tmux: Auto start a session when Zsh is launched in a SSH connection.
 zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 
-#=== iTerm: Integration
+# iTerm: Integration
 zstyle ':prezto:module:tmux:iterm' integrate 'yes'
