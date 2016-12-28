@@ -41,7 +41,7 @@ zstyle ':prezto:module:autosuggestions' color 'yes'
 zstyle ':prezto:module:autosuggestions:color' found ''
 
 # Editor: Set the key mapping style to 'emacs' or 'vi'.
-zstyle ':prezto:module:editor' key-bindings 'emacs'
+zstyle ':prezto:module:editor' key-bindings 'vi'
 
 # Auto convert .... to ../..
 zstyle ':prezto:module:editor' dot-expansion 'yes'
@@ -50,7 +50,7 @@ zstyle ':prezto:module:editor' dot-expansion 'yes'
 zstyle ':prezto:module:git:status:ignore' submodules 'all'
 
 # GNU Utility: Set the command prefix on non-GNU systems.
-zstyle ':prezto:module:gnu-utility' prefix 'g'
+# zstyle ':prezto:module:gnu-utility' prefix 'g'
 
 # History Substring Search: Set the query found color.
 zstyle ':prezto:module:history-substring-search:color' found ''
@@ -77,7 +77,7 @@ zstyle ':prezto:module:screen:auto-start' local 'yes'
 # Screen: Auto start a session when Zsh is launched in a SSH connection.
 zstyle ':prezto:module:screen:auto-start' remote 'yes'
 
-#===SSH: Set the SSH identities to load into the agent.
+# SSH: Set the SSH identities to load into the agent.
 zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_rsa2' 'id_github'
 
 # Syntax Highlighters.
