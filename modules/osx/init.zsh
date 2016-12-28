@@ -19,3 +19,22 @@ alias cdf='cd "$(pfd)"'
 
 # Pushes directory to the current Finder directory.
 alias pushdf='pushd "$(pfd)"'
+
+#
+# Finder
+#
+
+# Toggle AppleShowAllFiles
+toggleHidden() {
+  local ASAF
+  ASAF=$(defaults read com.apple.Finder AppleShowAllFiles)
+  if [[ '$ASAF' = 'TRUE' ]]; then
+    defaults write com.apple.Finder AppleShowAllFiles FALSE
+    killall Finder
+    echo 'AppleShowAllFiles Disabled.'
+  else
+    defaults write com.apple.Finder AppleShowAllFiles TRUE
+    killall Finder
+    echo 'AppleShowAllFiles Enabled.'
+  fi
+}

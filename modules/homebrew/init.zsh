@@ -22,6 +22,8 @@ alias brewl='brew list'
 alias brews='brew search'
 alias brewu='brew update && brew upgrade --all'
 alias brewx='brew remove'
+alias brewe='brew edit'
+alias brewmd='brew doctor'
 
 # Homebrew Cask
 alias cask='brew cask'
@@ -31,3 +33,6 @@ alias caski='brew cask install'
 alias caskl='brew cask list'
 alias casks='brew cask search'
 alias caskx='brew cask uninstall'
+
+# Update Homebrew
+alias brewu='brew update && brew upgrade --all && brew cleanup && brew prune && brew doctor'

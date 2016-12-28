@@ -6,39 +6,21 @@
 #   Andrew Bell <andrewbell8@gmail.com>
 #
 
-# base utility function
-function exists() {
-  test -x "$(command -v "$1")"
-}
-
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
-
-alias tree="tree -F --dirsfirst"
-if ls --color >/dev/null 2>/dev/null; then
-  alias ls="ls -lahbFk --color=auto --group-directories-first"
-else
-  alias ls="ls -bFkGlah"
-fi
+export MANPATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$MANPATH"
 
 # Working dir for developing
 PROJECT_DIR=${HOME}/code
 
-# VTE: In Arch Linux the package is called `vte3`.
-[[ -s /etc/profile.d/vte.sh ]] && source /etc/profile.d/vte.sh
-
-# Third Party
-# Requirement to make the pwd segment from tmux-powerline work
-if [[ -s "${HOME}/.tmux-powerlinerc" ]]; then
-  PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
-fi
-
 # BROWSER
 if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
+elif [[ "$OSTYPE" == msys* ]]; then
+  export BROWSER='explorer .'
 fi
 
 # EDITORS
-export EDITOR='mvim'
+export EDITOR='subl -w'
 export VISUAL='subl'
 export PAGER='less'
 
@@ -57,6 +39,7 @@ cdpath=(
 
 # PATH: Set the list of directories that Zsh searches for programs.
 path=(
+  $HOME/Dropbox/bin
   /usr/local/{bin,sbin}
   $path
 )

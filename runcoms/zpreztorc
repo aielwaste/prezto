@@ -31,8 +31,12 @@ zstyle ':prezto:load' pmodule \
   'history' \
   'directory' \
   'spectrum' \
+  'k' \
+  'command-not-found' \
   'utility' \
   'completion' \
+  'fasd' \
+  'osx' \
   'prompt'
 
 

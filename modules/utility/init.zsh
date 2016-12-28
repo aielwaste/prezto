@@ -15,6 +15,18 @@ pmodload 'helper' 'spectrum'
 setopt CORRECT
 
 #
+# Global Aliases
+#
+alias -g asrc="cd $HOME && source .zshrc && source .zpreztorc"
+alias -g C='| wc -l'
+alias -g H='| head'
+alias -g L="| less"
+alias -g DN="| /dev/null"
+alias -g S='| sort'
+alias -g G='| grep' # now you can do: ls foo G something
+alias -g PIPE='|'
+
+#
 # Aliases
 #
 
@@ -59,6 +71,7 @@ alias po='popd'
 alias pu='pushd'
 alias rm="${aliases[rm]:-rm} -i"
 alias type='type -a'
+alias tree='tree -FC'
 
 # ===== LS =====
 if is-callable 'dircolors'; then
@@ -130,7 +143,10 @@ else
   fi
 fi
 
+# System arch
+arch='$(uname -m)' && export arch
 alias pbc='pbcopy'
+
 alias pbp='pbpaste'
 
 # ===== File Download =====
@@ -156,9 +172,41 @@ else
   fi
 fi
 
+
+# ===== PS =====
+alias psa='ps aux'
+alias psg='ps aux | grep '
+alias psr='ps aux | grep ruby'
+
 #
 # Miscellaneous
 #
+# (f)ind by (n)ame
+# usage: fn foo
+# to find all files containing 'foo' in the name
+function fn() { ls **/*$1* }
+
+# file empty directories
+function empty() {
+  [ -z $REPLY/*(DN[1]) ]
+}
+
+# Alias Editing
+function TRAPHUP() {
+  source $HOME/.dotfiles/zsh/aliases.zsh
+}
+
+# Open Sublime Text Projects
+function sp() {
+  subl --command 'close_project' '$1'
+  sleep 0.2
+  subl --project '/Users/fr1v/Library/Application Support/Sublime Text 3/Packages/User/ProjectManager/$1.sublime-project'
+}
+
+# base utility function
+function exists() {
+  test -x "$(command -v "$1")"
+}
 
 # Serves a directory via HTTP.
 alias http-serve='python -m SimpleHTTPServer'
