@@ -2,7 +2,7 @@
 # Executes commands at login pre-zshrc.
 #
 # Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#   Sorin Ionescu <sorin.ionescu@gmail.com> 
 #   Andrew Bell <andrewbell8@gmail.com>
 #
 
@@ -11,22 +11,35 @@ PROJECT_DIR=${HOME}/code
 
 # BROWSER
 if [[ "$OSTYPE" == darwin* ]]; then
+
   export BROWSER='open'
-  export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
-  export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
-  export INFOPATH="$(brew --prefix coreutils)/libexec/gnuinfo:$INFOPATH"
+  
+  #install homebrew
+  install_homebrew() {
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  }
+
+  export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+  export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:/usr/local/share/man:$MANPATH"
+
 elif [[ "$OSTYPE" == msys* ]]; then
   export BROWSER='explorer .'
-elif [[ "$OSTYPE" == linux* ]]; then
+
+elif [[ "$OSTYPE" == cygwin* ]]; then
+  # install linuxbrew
+  install_linuxbrew() {
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
+  }
+
   export PATH="$HOME/.linuxbrew/bin:$PATH"
   export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
   export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 fi
 
 # EDITORS
+export PAGER='vimpager'
 export EDITOR='nvim'
-export VISUAL='subl'
-export PAGER='less'
+export VISUAL='mvim'
 
 # LANGUAGE
 if [[ -z "$LANG" ]]; then
