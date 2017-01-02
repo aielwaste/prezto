@@ -12,7 +12,7 @@ PROJECT_DIR=${HOME}/code
 # BROWSER
 if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
-  export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+  export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
   export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
   export INFOPATH="$(brew --prefix coreutils)/libexec/gnuinfo:$INFOPATH"
 elif [[ "$OSTYPE" == msys* ]]; then
