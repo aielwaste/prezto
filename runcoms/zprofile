@@ -6,21 +6,25 @@
 #   Andrew Bell <andrewbell8@gmail.com>
 #
 
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
-export MANPATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$MANPATH"
-
 # Working dir for developing
 PROJECT_DIR=${HOME}/code
 
 # BROWSER
 if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
+  export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+  export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
+  export INFOPATH="$(brew --prefix coreutils)/libexec/gnuinfo:$INFOPATH"
 elif [[ "$OSTYPE" == msys* ]]; then
   export BROWSER='explorer .'
+elif [[ "$OSTYPE" == linux* ]]; then
+  export PATH="$HOME/.linuxbrew/bin:$PATH"
+  export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+  export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 fi
 
 # EDITORS
-export EDITOR='subl -w'
+export EDITOR='nvim'
 export VISUAL='subl'
 export PAGER='less'
 
