@@ -7,14 +7,14 @@
 #
 
 pacman --query --explicit --info \
-  | awk '
-      BEGIN {
-        FS=":"
-      }
-      /^Name/ {
-        print $2
-      }
-      /^Description/ {
-        print $2
-      }
-    '
+| awk '
+    BEGIN {
+      FS=":"
+    }
+    /^Name/ {
+      print $2
+    }
+    /^Description/ {
+      print $2
+    }
+  '

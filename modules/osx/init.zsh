@@ -25,7 +25,7 @@ alias pushdf='pushd "$(pfd)"'
 #
 
 # Toggle AppleShowAllFiles
-toggleHidden() {
+toggle_hidden() {
   local ASAF
   ASAF=$(defaults read com.apple.Finder AppleShowAllFiles)
   if [[ '$ASAF' = 'TRUE' ]]; then

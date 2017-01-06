@@ -15,12 +15,42 @@
 } &!
 
 # Print a random, hopefully interesting, adage.
-if (( $+commands[fortune] )); then
+if (( $+kcommands[fortune] )); then
   if [[ -t 0 || -t 1 ]]; then
     fortune -s
     print
   fi
 fi
 
-alias archey='archey -l'
+
+alias archey='/Users/fr1v/Dropbox/bin/archey -lu'
 archey
+
+PartArt() {														
+clear
+cat <<"EOT"															
+
+               ...
+             ;::::;
+           ;::::; :;	DON'T FEAR THE REAPER... 
+         ;:::::'   :;        
+        ;:::::;     ;.			-={ i3-BlackArch }=-
+       ,:::::'       ;           OOO\
+       ::::::;       ;          OOOOO\
+       ;:::::;       ;         OOOOOOOO
+      ,;::::::;     ;'         / OOOOOOO
+    ;:::::::::`. ,,,;.        /  / DOOOOOO
+  .';:::::::::::::::::;,     /  /     DOOOO
+ ,::::::;::::::;;;;::::;,   /  /        DOOO
+;`::::::`'::::::;;;::::: ,#/  /          DOOO
+:`:::::::`;::::::;;::: ;::#  /            DOOO
+::`:::::::`;:::::::: ;::::# /              DOO
+`:`:::::::`;:::::: ;::::::#/               DOO
+ :::`:::::::`;; ;:::::::::##                OO
+ ::::`:::::::`;::::::::;:::#                OO
+ `:::::`::::::::::::;'`:;::#                O
+  `:::::`::::::::;' /  / `:#
+   ::::::`:::::;'  /  /   `#
+EOT
+sleep 3
+}

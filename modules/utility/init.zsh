@@ -61,17 +61,18 @@ alias sftp='noglob sftp'
 # ===== Define General Aliases =====
 alias _='sudo'
 alias b='${(z)BROWSER}'
-alias cp="${aliases[cp]:-cp} -i"
+alias cp="${aliases[cp]:-cp}"
 alias e='${(z)VISUAL:-${(z)EDITOR}}'
-alias ln="${aliases[ln]:-ln} -i"
+alias ln="${aliases[ln]:-ln}"
 alias mkdir="${aliases[mkdir]:-mkdir} -p"
-alias mv="${aliases[mv]:-mv} -i"
+alias mv="${aliases[mv]:-mv}"
 alias p='${(z)PAGER}'
 alias po='popd'
 alias pu='pushd'
-alias rm="${aliases[rm]:-rm} -i"
+alias rm="${aliases[rm]:-rm}"
 alias type='type -a'
 alias tree='tree -FC'
+alias dmesg='dmesg --color=always | less'
 
 # ===== LS =====
 if is-callable 'dircolors'; then
@@ -181,10 +182,14 @@ alias psr='ps aux | grep ruby'
 #
 # Miscellaneous
 #
-# (f)ind by (n)ame
-# usage: fn foo
-# to find all files containing 'foo' in the name
-function fn() { ls **/*$1* }
+
+# pretty print path
+function path(){
+  old=$IFS
+  IFS=:
+  printf "%s\n" $PATH
+  IFS=$old
+}
 
 # file empty directories
 function empty() {
@@ -253,3 +258,72 @@ function find-exec {
 function psu {
   ps -U "${1:-$LOGNAME}" -o 'pid,%cpu,%mem,command' "${(@)argv[2,-1]}"
 }
+
+
+
+#Here's a bit of Korn shell that converts the symbolic permissions produced
+#by "ls -l" into octal, using only shell builtins.  How to create a script
+#combining this with an "ls -l" is left as an exercise...
+#
+#
+# Converted to Bash v2 syntax by Chet Ramey <chet@po.cwru.edu>
+#
+# usage: showperm modestring
+#
+# example: showperm '-rwsr-x--x'
+#
+
+function showperm() {
+  [ -z "$1" ] && {
+    echo "showperm: usage: showperm modestring" >&2
+    exit 2
+  }
+
+  tmode="$1"
+
+  typeset -i omode sbits
+  typeset pmode
+
+  # check for set-uid, etc. bits
+  sbits=0
+  case $tmode in
+  ???[sS]*)       (( sbits += 8#4000 )) ;; # set-uid
+  ??????[sSl]*)   (( sbits += 8#2000 )) ;; # set-gid or mand. lock
+  ?????????[tT]*) (( sbits += 8#1000 )) ;; # sticky
+  esac
+
+  omode=0
+  while :
+  do
+    tmode=${tmode#?}
+    case $tmode in
+    "")       break ;;
+    [-STl]*)  (( omode *= 2 )) ;;
+    [rwxst]*) (( omode = omode*2 + 1 )) ;;
+    *)    echo "$0: first letter of \"$tmode\" is unrecognized" >&2
+            (( omode *= 2 ))
+            ;;
+    esac
+  done
+
+  (( omode += sbits ))
+
+  printf "0%o\n" $omode
+}
+
+zmodload zsh/zpty
+
+function pty() {
+  zpty pty-${UID} ${1+$@}
+  if [[ ! -t 1 ]];then
+    setopt local_traps
+    trap '' INT
+  fi
+  zpty -r pty-${UID}
+  zpty -d pty-${UID}
+}
+
+function ptyless() {
+  pty $@ | less
+}
+

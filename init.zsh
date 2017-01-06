@@ -11,7 +11,7 @@
 #
 
 # Check for the minimum supported version.
-min_zsh_version='4.3.17'
+min_zsh_version='5.2'
 if ! autoload -Uz is-at-least || ! is-at-least "$min_zsh_version"; then
   print "prezto: old shell detected, minimum required: $min_zsh_version" >&2
   return 1
@@ -42,7 +42,11 @@ function pmodload {
 
     # Load Prezto functions.
     for pfunction in ${ZDOTDIR:-$HOME}/.zprezto/modules/${^pmodules}/functions/$~pfunction_glob; do
-      autoload -Uz "$pfunction"
+      if [[ "${prezto_debug}" = true ]]; then
+        echo "autoload -Uz "$pfunction" >> ${HOME}/Library/Logs/Prezto"
+      else
+        autoload -Uz "$pfunction"
+      fi
     done
   }
 
@@ -84,7 +88,7 @@ function pmodload {
 }
 
 #
-# PREZTO INITIALIZATION
+# Prezto Initialization
 #
 
 # Source the Prezto configuration file.
