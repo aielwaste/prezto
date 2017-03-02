@@ -81,7 +81,7 @@ zle -N edit-command-line
 
 # Exposes information about the Zsh Line Editor via the $editor_info associative
 # array.
-function editor-info {
+function editor-info() {
   # Clean up previous $editor_info.
   unset editor_info
   typeset -gA editor_info
@@ -110,13 +110,13 @@ function editor-info {
 zle -N editor-info
 
 # Updates editor information when the keymap changes.
-function zle-keymap-select {
+function zle-keymap-select() {
   zle editor-info
 }
 zle -N zle-keymap-select
 
 # Enables terminal application mode and updates editor information.
-function zle-line-init {
+function zle-line-init() {
   # The terminal must be in application mode when ZLE is active for $terminfo
   # values to be valid.
   if (( $+terminfo[smkx] )); then
@@ -144,14 +144,14 @@ function zle-line-finish {
 zle -N zle-line-finish
 
 # Toggles emacs overwrite mode and updates editor information.
-function overwrite-mode {
+function overwrite-mode() {
   zle .overwrite-mode
   zle editor-info
 }
 zle -N overwrite-mode
 
 # Enters vi insert mode and updates editor information.
-function vi-insert {
+function vi-insert() {
   zle .vi-insert
   zle editor-info
 }

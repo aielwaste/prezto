@@ -2,80 +2,257 @@
 # Executes commands at login pre-zshrc.
 #
 # Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com> 
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
 #   Andrew Bell <andrewbell8@gmail.com>
 #
 
-# Working dir for developing
-PROJECT_DIR=${HOME}/code
+#
+# Browser
+#
 
-# BROWSER
-if [[ "$OSTYPE" == darwin* ]]; then
+export BROWSER='open'
 
-  export BROWSER='open'
-  
+if [[ ! -z $(which brew) ]]; then
   #install homebrew
-  install_homebrew() {
+  function install_homebrew() {
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   }
-
-  export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
-  export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:/usr/local/share/man:$MANPATH"
-
-elif [[ "$OSTYPE" == msys* ]]; then
-  export BROWSER='explorer .'
-
-elif [[ "$OSTYPE" == cygwin* ]]; then
-  # install linuxbrew
-  install_linuxbrew() {
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
-  }
-
-  export PATH="$HOME/.linuxbrew/bin:$PATH"
-  export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-  export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 fi
 
-# EDITORS
-export PAGER='vimpager'
-export EDITOR='nvim'
-export VISUAL='mvim'
+#
+# Textmate
+#
 
-# LANGUAGE
+if [[ -z "$(which mate)" ]]; then
+  export TM_FULLNAME="Andrew Bell"
+  export TM_ORGANIZATION="Fr1v"
+  export TM_GIT="/usr/local/bin/git"
+  export TM_SVN="/usr/local/bin/svn"
+  export TM_HG="/usr/local/bin/hg"
+  export TM_RUBY="/usr/local/bin/ruby"
+  export TM_THEME_PATH="${HOME}/Library/Application Support/TextMate/Managed/Bundles/Themes.tmbundle/Themes"
+  export TM_SUPPORT_PATH="${HOME}/Library/Application Support/TextMate/Managed/Bundles/Bundle Support.tmbundle/Support/shared"
+  export TM_SVN_DIFF_CMD="/usr/local/bin/ksdiff"
+  export TM_HG_EXT_DIFF="/usr/local/bin/ksdiff"
+fi
+
+# Gnupg
+GPG_TTY=$(tty)
+export GPG_TTY
+export MYGPGKEY=
+
+#
+# Editors
+#
+
+export PAGER='less'
+export EDITOR='subl -w'
+export VISUAL="${EDITOR}"
+export GIT_EDITOR='subl -n -w'
+export SVN_EDITOR="${GIT_EDITOR}"
+export HG_EDITOR="${GIT_EDITOR}"
+export HOMEBREW_EDITOR="${GIT_EDITOR}"
+export ___FULLUSERNAME___="Andrew Bell"
+export ___ORGANIZATIONNAME___="Fr1v"
+export SNIPPET_AUTHOR="Andrew Bell"
+
+
+#
+# zsh
+#
+
+#
+# Rbenv
+#
+
+if [[ -d "${HOME}/.rbenv" ]]; then
+  export PROJECT_HOME="${ZDOTDIR:-$HOME}"/code
+  export RBENV_ROOT="${ZDOTDIR:-$HOME}"/.rbenv
+  export RBENV_DIR="$PWD"
+  export PATH="${RBENV_ROOT}/bin:$PATH"
+
+  # rbenv init
+  if which rbenv > /dev/null; then
+    eval "$(rbenv init -)"
+  fi
+
+  # rbenv completions
+  if [[ -f "${HOME}/.rbenv/completions/rbenv.zsh" ]]; then
+    source "${HOME}/.rbenv/completions/rbenv.zsh"
+  fi
+fi
+
+#
+# pyenv
+#
+
+if [[ -d "${HOME}/.pyenv" ]]; then
+  export PYENV_ROOT="${ZDOTDIR:-$HOME}/.pyenv"
+  export PYENV_DIR="$PWD"
+  export PATH="${PYENV_ROOT}/bin:$PATH"
+
+  # pyenv init
+  if which pyenv > /dev/null; then
+    eval "$(pyenv init -)"
+  fi
+
+  # pyenv completions
+  if [[ -f "${HOME}/.pyenv/completions/pyenv.zsh" ]]; then
+    source "${HOME}/.pyenv/completions/pyenv.zsh"
+  fi
+fi
+
+
+#
+# pyenv-virtualenv
+#
+
+if which pyenv-virtualenv-init > /dev/null; then
+  eval "$(pyenv virtualenv-init -)"
+fi
+
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+
+
+#
+# nodenv
+#
+
+if [[ -d "${HOME}/.rbenv" ]]; then
+  export NODENV_ROOT="${ZDOTDIR:-$HOME}"/.nodenv
+  export NODENV_DIR="$PWD"
+  export PATH="${NODENV_ROOT}/bin:$PATH"
+
+  # nodenv init
+  eval "$(nodenv init -)"
+
+  # nodenv completions
+  if [[ -f "${HOME}/.nodenv/completions/nodenv.zsh" ]]; then
+    source "${HOME}/.nodenv/completions/nodenv.zsh"
+  fi
+fi
+
+
+#
+# Ranger
+#
+export RANGER_LOAD_DEFAULT_RC=false
+
+#
+# Java
+#
+
+JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
+CLASSPATH=".:${HOME}/Library/Java/junit.jar:$CLASSPATH"
+export JAVA_HOME JAVA_OPTS CLASSPATH
+
+
+# GNU Packages
+gnu_packages=()
+
+#
+# Language
+#
+
 if [[ -z "$LANG" ]]; then
   export LANG='en_US.UTF-8'
 fi
 
-# Prevent these from being duplicates
+#
+# Paths
+#
+
+# Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
 
-# CDPATH: Set the the list of directories that cd searches.
-cdpath=(
-  $cdpath
-)
+# Set the the list of directories that cd searches.
+# cdpath=(
+#   $cdpath
+# )
 
-# PATH: Set the list of directories that Zsh searches for programs.
+# Set the list of directories that Zsh searches for programs.
 path=(
-  $HOME/Dropbox/bin
+  /Users/fr1v/bin
   /usr/local/{bin,sbin}
+  /usr/local/share/zsh-completions
+  /usr/share/zsh/site-functions
+  export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+  export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:/usr/local/share/man:$MANPATH"
+  export PATH="$(brew --prefix gettext)/libexec/gnubin:/usr/local/bin:$PATH"
+  export MANPATH="$(brew --prefix gettext)/libexec/gnuman:/usr/local/share/man:$MANPATH"
+  export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
+  export PATH="$(brew --prefix gawk)/libexec/gnubin:/usr/local/bin:$PATH"
+  export MANPATH="$(brew --prefix gawk)/libexec/gnuman:/usr/local/share/man:$MANPATH"
+  export PATH="$(brew --prefix gnu-sed)/libexec/gnubin:/usr/local/bin:$PATH"
+  export MANPATH="$(brew --prefix gnu-sed)/libexec/gnuman:/usr/local/share/man:$MANPATH"
+  export PATH="$(brew --prefix mawk)/libexec/gnubin:/usr/local/bin:$PATH"
+  export MANPATH="$(brew --prefix mawk)/libexec/gnuman:/usr/local/share/man:$MANPATH"
+  export PATH="$(brew --prefix findutils)/libexec/gnubin:/usr/local/bin:$PATH"
+  export MANPATH="$(brew --prefix findutils)/libexec/gnuman:/usr/local/share/man:$MANPATH"
+  export PATH="$(brew --prefix gnu-which)/libexec/gnubin:/usr/local/bin:$PATH"
+  export MANPATH="$(brew --prefix gnu-which)/libexec/gnuman:/usr/local/share/man:$MANPATH"
+  export PATH="$(brew --prefix grep)/libexec/gnubin:/usr/local/bin:$PATH"
+  export MANPATH="$(brew --prefix grep)/libexec/gnuman:/usr/local/share/man:$MANPATH"
+  export PATH="$(brew --prefix binutils)/libexec/gnubin:/usr/local/bin:$PATH"
+  export MANPATH="$(brew --prefix binutils)/libexec/gnuman:/usr/local/share/man:$MANPATH"
+  export PATH="$(brew --prefix diffutils)/libexec/gnubin:/usr/local/bin:$PATH"
+  export MANPATH="$(brew --prefix diffutils)/libexec/gnuman:/usr/local/share/man:$MANPATH"
+  export PATH="$(brew --prefix ed)/libexec/gnubin:/usr/local/bin:$PATH"
+  export MANPATH="$(brew --prefix ed)/libexec/gnuman:/usr/local/share/man:$MANPATH"
+  export PATH="$(brew --prefix gnu-indent)/libexec/gnubin:/usr/local/bin:$PATH"
+  export MANPATH="$(brew --prefix gnu-indent)/libexec/gnuman:/usr/local/share/man:$MANPATH"
+  export PATH="$(brew --prefix gnu-tar)/libexec/gnubin:/usr/local/bin:$PATH"
+  export MANPATH="$(brew --prefix gnu-tar)/libexec/gnuman:/usr/local/share/man:$MANPATH"
+  export PATH="$(brew --prefix gnutls)/libexec/gnubin:/usr/local/bin:$PATH"
+  export MANPATH="$(brew --prefix gnutls)/libexec/gnuman:/usr/local/share/man:$MANPATH"
+  export PATH="$(brew --prefix gzip)/libexec/gnubin:/usr/local/bin:$PATH"
+  export MANPATH="$(brew --prefix gzip)/libexec/gnuman:/usr/local/share/man:$MANPATH"
+  export PATH="$(brew --prefix screen)/libexec/gnubin:/usr/local/bin:$PATH"
+  export MANPATH="$(brew --prefix screen)/libexec/gnuman:/usr/local/share/man:$MANPATH"
+  export PATH="$(brew --prefix watch)/libexec/gnubin:/usr/local/bin:$PATH"
+  export MANPATH="$(brew --prefix watch)/libexec/gnuman:/usr/local/share/man:$MANPATH"
+  export PATH="$(brew --prefix wdiff)/libexec/gnubin:/usr/local/bin:$PATH"
+  export MANPATH="$(brew --prefix wdiff)/libexec/gnuman:/usr/local/share/man:$MANPATH"
+  export PATH="$(brew --prefix wget)/libexec/gnubin:/usr/local/bin:$PATH"
+  export MANPATH="$(brew --prefix wget)/libexec/gnuman:/usr/local/share/man:$MANPATH"
+  export PATH="$(brew --prefix less)/libexec/gnubin:/usr/local/bin:$PATH"
+  export MANPATH="$(brew --prefix less)/libexec/gnuman:/usr/local/share/man:$MANPATH"
+  export PATH="$(brew --prefix gdb)/libexec/gnubin:/usr/local/bin:$PATH"
+  export MANPATH="$(brew --prefix gdb)/libexec/gnuman:/usr/local/share/man:$MANPATH"
+  export PATH="$(brew --prefix gpatch)/libexec/gnubin:/usr/local/bin:$PATH"
+  export MANPATH="$(brew --prefix gpatch)/libexec/gnuman:/usr/local/share/man:$MANPATH"
+  export PATH="$(brew --prefix make)/libexec/gnubin:/usr/local/bin:$PATH"
+  export MANPATH="$(brew --prefix make)/libexec/gnuman:/usr/local/share/man:$MANPATH"
+  export PATH="$(brew --prefix nano)/libexec/gnubin:/usr/local/bin:$PATH"
+  export MANPATH="$(brew --prefix nano)/libexec/gnuman:/usr/local/share/man:$MANPATH"
+  export PATH="$(brew --prefix m4)/libexec/gnubin:/usr/local/bin:$PATH"
+  export MANPATH="$(brew --prefix m4)/libexec/gnuman:/usr/local/share/man:$MANPATH"
   $path
 )
 
-# LESS
+#
+# Less
+#
+
+# Set the default Less options.
 # Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
 # Remove -X and -F (exit if the content fits on one screen) to enable it.
 export LESS='-F -g -i -M -R -S -w -X -z-4'
 
-# `lesspipe` and `lesspipe.sh` as either might exist on a system.
+# Set the Less input preprocessor.
+# Try both `lesspipe` and `lesspipe.sh` as either might exist on a system.
 if (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
 
-# TEMP
+
+#
+# Temporary Files
+#
+
 if [[ ! -d "$TMPDIR" ]]; then
   export TMPDIR="/tmp/$LOGNAME"
   mkdir -p -m 700 "$TMPDIR"
 fi
 
 TMPPREFIX="${TMPDIR%/}/zsh"
-

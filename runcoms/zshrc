@@ -8,9 +8,12 @@
 #   Andrew Bell <andrewbell8@gmail.com>
 #
 
+POWERLEVEL9K_MODE='awesome-fontconfig'
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 else
   echo 'Prezto not installed!.'
 fi
+
