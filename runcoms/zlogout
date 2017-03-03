@@ -1,13 +1,17 @@
 #
-# Executes commands at logout.
+# .zlogout
+# Executes Commands at Logout
 #
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
+# fr1volous
+# Andrew Bell <andrewbell8@gmail.com>
 #
 
 # Print the message.
-cat <<-EOF
+tdate = $(date +%y.%m.%d)
 
-Thank you. Come again!
-  -- Dr. Apu Nahasapeemapetilon
+cat <<EOF logout.txt
+
+Logging off Fr1volous
+  -- ajb $tdate
 EOF
+

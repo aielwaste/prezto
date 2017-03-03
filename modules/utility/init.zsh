@@ -5,19 +5,32 @@
 #   Robby Russell <robby@planetargon.com>
 #   Suraj N. Kurapati <sunaku@gmail.com>
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
+#   Andrew Bell <andrewbell8@gmail.com>
 #
 
-# Load dependencies.
+# ===== Load Dependencies ===== 
 pmodload 'helper' 'spectrum'
 
-# Correct commands.
+# ===== Correct Commands =====
 setopt CORRECT
+
+#
+# Global Aliases
+#
+alias -g asrc="cd $HOME && source .zshrc && source .zpreztorc"
+alias -g C='| wc -l'
+alias -g H='| head'
+alias -g L="| less"
+alias -g DN="| /dev/null"
+alias -g S='| sort'
+alias -g G='| grep' # now you can do: ls foo G something
+alias -g PIPE='|'
 
 #
 # Aliases
 #
 
-# Disable correction.
+# ===== Disable correction =====
 alias ack='nocorrect ack'
 alias cd='nocorrect cd'
 alias cp='nocorrect cp'
@@ -33,7 +46,7 @@ alias mv='nocorrect mv'
 alias mysql='nocorrect mysql'
 alias rm='nocorrect rm'
 
-# Disable globbing.
+# ===== Disable Globbing =====
 alias bower='noglob bower'
 alias fc='noglob fc'
 alias find='noglob find'
@@ -45,23 +58,25 @@ alias rsync='noglob rsync'
 alias scp='noglob scp'
 alias sftp='noglob sftp'
 
-# Define general aliases.
+# ===== Define General Aliases =====
 alias _='sudo'
 alias b='${(z)BROWSER}'
-alias cp="${aliases[cp]:-cp} -i"
+alias cp="${aliases[cp]:-cp}"
 alias e='${(z)VISUAL:-${(z)EDITOR}}'
-alias ln="${aliases[ln]:-ln} -i"
+alias ln="${aliases[ln]:-ln}"
 alias mkdir="${aliases[mkdir]:-mkdir} -p"
-alias mv="${aliases[mv]:-mv} -i"
+alias mv="${aliases[mv]:-mv}"
 alias p='${(z)PAGER}'
 alias po='popd'
 alias pu='pushd'
-alias rm="${aliases[rm]:-rm} -i"
+alias rm="${aliases[rm]:-rm}"
 alias type='type -a'
+alias tree='tree -FC'
+alias dmesg='dmesg --color=always | less'
 
-# ls
+# ===== LS =====
 if is-callable 'dircolors'; then
-  # GNU Core Utilities
+  # ===== GNU Core Utilities =====
   alias ls='ls --group-directories-first'
 
   if zstyle -t ':prezto:module:utility:ls' color; then
@@ -76,7 +91,7 @@ if is-callable 'dircolors'; then
     alias ls="${aliases[ls]:-ls} -F"
   fi
 else
-  # BSD Core Utilities
+  # ===== BSD Core Utilities =====
   if zstyle -t ':prezto:module:utility:ls' color; then
     # Define colors for BSD ls.
     export LSCOLORS='exfxcxdxbxGxDxabagacad'
@@ -102,7 +117,7 @@ alias lc='lt -c'         # Lists sorted by date, most recent last, shows change 
 alias lu='lt -u'         # Lists sorted by date, most recent last, shows access time.
 alias sl='ls'            # I often screw this up.
 
-# Grep
+# ===== Grep =====
 if zstyle -t ':prezto:module:utility:grep' color; then
   export GREP_COLOR='37;45'           # BSD.
   export GREP_COLORS="mt=$GREP_COLOR" # GNU.
@@ -110,7 +125,7 @@ if zstyle -t ':prezto:module:utility:grep' color; then
   alias grep="${aliases[grep]:-grep} --color=auto"
 fi
 
-# Mac OS X Everywhere
+# ===== Mac OS X Everywhere =====
 if [[ "$OSTYPE" == darwin* ]]; then
   alias o='open'
 elif [[ "$OSTYPE" == cygwin* ]]; then
@@ -129,17 +144,20 @@ else
   fi
 fi
 
+# System arch
+arch='$(uname -m)' && export arch
 alias pbc='pbcopy'
+
 alias pbp='pbpaste'
 
-# File Download
+# ===== File Download =====
 if (( $+commands[curl] )); then
   alias get='curl --continue-at - --location --progress-bar --remote-name --remote-time'
 elif (( $+commands[wget] )); then
   alias get='wget --continue --progress=bar --timestamping'
 fi
 
-# Resource Usage
+# ===== Resource Usage =====
 alias df='df -kh'
 alias du='du -kh'
 
@@ -155,46 +173,157 @@ else
   fi
 fi
 
+
+# ===== PS =====
+alias psa='ps aux'
+alias psg='ps aux | grep '
+alias psr='ps aux | grep ruby'
+
+#
 # Miscellaneous
+#
+
+# pretty print path
+function path(){
+  old=$IFS
+  IFS=:
+  printf "%s\n" $PATH
+  IFS=$old
+}
+
+# file empty directories
+function empty() {
+  [ -z $REPLY/*(DN[1]) ]
+}
+
+# Alias Editing
+function TRAPHUP() {
+  source $HOME/.dotfiles/zsh/aliases.zsh
+}
+
+# Open Sublime Text Projects
+function sp() {
+  subl --command 'close_project' '$1'
+  sleep 0.2
+  subl --project '/Users/fr1v/Library/Application Support/Sublime Text 3/Packages/User/ProjectManager/$1.sublime-project'
+}
+
+# base utility function
+function exists() {
+  test -x "$(command -v "$1")"
+}
 
 # Serves a directory via HTTP.
 alias http-serve='python -m SimpleHTTPServer'
 
-#
-# Functions
-#
-
+# ===== Functions =====
+# ===== mkdcd =====
 # Makes a directory and changes to it.
 function mkdcd {
   [[ -n "$1" ]] && mkdir -p "$1" && builtin cd "$1"
 }
 
+# ===== CDLS =====
 # Changes to a directory and lists its contents.
 function cdls {
   builtin cd "$argv[-1]" && ls "${(@)argv[1,-2]}"
 }
 
+# ===== PUSHDLS =====
 # Pushes an entry onto the directory stack and lists its contents.
 function pushdls {
   builtin pushd "$argv[-1]" && ls "${(@)argv[1,-2]}"
 }
 
+# ===== POPDLS =====
 # Pops an entry off the directory stack and lists its contents.
 function popdls {
   builtin popd "$argv[-1]" && ls "${(@)argv[1,-2]}"
 }
 
+# ===== SLIT =====
 # Prints columns 1 2 3 ... n.
 function slit {
   awk "{ print ${(j:,:):-\$${^@}} }"
 }
 
+# ===== FIND-EXEC =====
 # Finds files and executes a command on them.
 function find-exec {
   find . -type f -iname "*${1:-}*" -exec "${2:-file}" '{}' \;
 }
 
+# ===== PSU =====
 # Displays user owned processes status.
 function psu {
   ps -U "${1:-$LOGNAME}" -o 'pid,%cpu,%mem,command' "${(@)argv[2,-1]}"
 }
+
+
+
+#Here's a bit of Korn shell that converts the symbolic permissions produced
+#by "ls -l" into octal, using only shell builtins.  How to create a script
+#combining this with an "ls -l" is left as an exercise...
+#
+#
+# Converted to Bash v2 syntax by Chet Ramey <chet@po.cwru.edu>
+#
+# usage: showperm modestring
+#
+# example: showperm '-rwsr-x--x'
+#
+
+function showperm() {
+  [ -z "$1" ] && {
+    echo "showperm: usage: showperm modestring" >&2
+    exit 2
+  }
+
+  tmode="$1"
+
+  typeset -i omode sbits
+  typeset pmode
+
+  # check for set-uid, etc. bits
+  sbits=0
+  case $tmode in
+  ???[sS]*)       (( sbits += 8#4000 )) ;; # set-uid
+  ??????[sSl]*)   (( sbits += 8#2000 )) ;; # set-gid or mand. lock
+  ?????????[tT]*) (( sbits += 8#1000 )) ;; # sticky
+  esac
+
+  omode=0
+  while :
+  do
+    tmode=${tmode#?}
+    case $tmode in
+    "")       break ;;
+    [-STl]*)  (( omode *= 2 )) ;;
+    [rwxst]*) (( omode = omode*2 + 1 )) ;;
+    *)    echo "$0: first letter of \"$tmode\" is unrecognized" >&2
+            (( omode *= 2 ))
+            ;;
+    esac
+  done
+
+  (( omode += sbits ))
+
+  printf "0%o\n" $omode
+}
+
+zmodload zsh/zpty
+
+function pty() {
+  zpty pty-${UID} ${1+$@}
+  if [[ ! -t 1 ]];then
+    setopt local_traps
+    trap '' INT
+  fi
+  zpty -r pty-${UID}
+  zpty -d pty-${UID}
+}
+
+function ptyless() {
+  pty $@ | less
+}
+

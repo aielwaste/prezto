@@ -1,13 +1,19 @@
+# Customize to your needs...
 #
 # Executes commands at the start of an interactive session.
 #
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
+#   Pablo Olmos de Aguilera <pablo at glatelier dot org>
+#   Andrew Bell <andrewbell8@gmail.com>
 #
+
+POWERLEVEL9K_MODE='awesome-fontconfig'
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+else
+  echo 'Prezto not installed!.'
 fi
 
-# Customize to your needs...
