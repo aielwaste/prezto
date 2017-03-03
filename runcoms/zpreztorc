@@ -96,7 +96,8 @@ zstyle ':prezto:module:editor' dot-expansion 'yes'
 #
 
 # Set the Pacman frontend.
-# zstyle ':prezto:module:pacman' frontend 'yaourt'
+zstyle ':prezto:module:pacman' frontend 'packer'
+zstyle ':prezto:module:pacman' noconfirm 'yes'
 
 #
 # Prompt
@@ -106,6 +107,12 @@ zstyle ':prezto:module:editor' dot-expansion 'yes'
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
 zstyle ':prezto:module:prompt' theme 'powerlevel9k'
+
+#
+# Python
+#
+# %v - virtualenv name.
+zstyle ':prezto:module:python:info:virtualenv' format 'virtualenv:%v'
 
 #
 # Ruby
@@ -129,7 +136,7 @@ zstyle ':prezto:module:prompt' theme 'powerlevel9k'
 #
 
 # Set the SSH identities to load into the agent.
-zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_rsa2' 'id_github' 'andrewbell8_GitHub' 'andrewbell8_Bitbucket' 'id_rsa_launchpad'
+zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_github' 'andrewbell8_GitHub' 'andrewbell8_Bitbucket' 'id_rsa_launchpad'
 
 #
 # Syntax Highlighting
@@ -137,19 +144,19 @@ zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_rsa2' 'id_github' 'andr
 
 # Set syntax highlighters.
 # By default, only the main highlighter is enabled.
-# zstyle ':prezto:module:syntax-highlighting' highlighters \
-#   'main' \
-#   'brackets' \
-#   'pattern' \
-#   'line' \
-#   'cursor' \
-#   'root'
-#
+zstyle ':prezto:module:syntax-highlighting' highlighters \
+  'main' \
+  'brackets' \
+  'pattern' \
+  'line' \
+  'cursor' \
+  'root'
+
 # Set syntax highlighting styles.
-# zstyle ':prezto:module:syntax-highlighting' styles \
-#   'builtin' 'bg=blue' \
-#   'command' 'bg=blue' \
-#   'function' 'bg=blue'
+zstyle ':prezto:module:syntax-highlighting' styles \
+  'builtin' 'bg=blue' \
+  'command' 'bg=blue' \
+  'function' 'bg=blue'
 
 #
 # Terminal

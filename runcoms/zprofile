@@ -6,6 +6,16 @@
 #   Andrew Bell <andrewbell8@gmail.com>
 #
 
+if [[ -f "${HOME}"/.secrets ]]; then
+  source "${HOME}"/.secrets
+fi
+
+export 
+
+export POWERLEVEL9K_MODE='awesome-fontconfig'
+export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs node_version custom_newline os_icon status)
+export POWERLEVEL9K_CUSTOM_NEWLINE="print '\n '"
+
 #
 # Browser
 #
@@ -39,7 +49,7 @@ fi
 # Gnupg
 GPG_TTY=$(tty)
 export GPG_TTY
-export MYGPGKEY=
+export MYGPGKEY=37D280F9
 
 #
 # Editors
