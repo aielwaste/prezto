@@ -151,6 +151,10 @@ path=(
   $path
 )
 
+if [[ -s "${HOME}/.zprezto/modules/revolver/revolver.zsh-completion" ]]; then
+  source "${HOME}/.zprezto/modules/revolver/revolver.zsh-completion"
+fi
+
 #
 # Less
 #

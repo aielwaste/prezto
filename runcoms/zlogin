@@ -24,4 +24,4 @@ if (( $+kcommands[fortune] )); then
 fi
 
 
-archey -lu
+screenfetch
