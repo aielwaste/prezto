@@ -3,6 +3,7 @@
 #
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
+#   Andrew Bell <andrewbell8@gmail.com>
 #
 
 # Execute code that does not affect the current session in the background.
@@ -23,34 +24,4 @@ if (( $+kcommands[fortune] )); then
 fi
 
 
-alias archey='/Users/fr1v/Dropbox/bin/archey -lu'
-archey
-
-PartArt() {														
-clear
-cat <<"EOT"															
-
-               ...
-             ;::::;
-           ;::::; :;	DON'T FEAR THE REAPER... 
-         ;:::::'   :;        
-        ;:::::;     ;.			-={ i3-BlackArch }=-
-       ,:::::'       ;           OOO\
-       ::::::;       ;          OOOOO\
-       ;:::::;       ;         OOOOOOOO
-      ,;::::::;     ;'         / OOOOOOO
-    ;:::::::::`. ,,,;.        /  / DOOOOOO
-  .';:::::::::::::::::;,     /  /     DOOOO
- ,::::::;::::::;;;;::::;,   /  /        DOOO
-;`::::::`'::::::;;;::::: ,#/  /          DOOO
-:`:::::::`;::::::;;::: ;::#  /            DOOO
-::`:::::::`;:::::::: ;::::# /              DOO
-`:`:::::::`;:::::: ;::::::#/               DOO
- :::`:::::::`;; ;:::::::::##                OO
- ::::`:::::::`;::::::::;:::#                OO
- `:::::`::::::::::::;'`:;::#                O
-  `:::::`::::::::;' /  / `:#
-   ::::::`:::::;'  /  /   `#
-EOT
-sleep 3
-}
+archey -lu

@@ -38,15 +38,6 @@ function find_non_writable() {
 }
 
 
-# print out files that dont have extensions
-function find_no_ext() {
-  printf '%s\n' ^?*.*
-  printf '%s\n' ^?*.[^.]*(D)
-  ls -d -- ^?*.*(D)
-}
-
-
-
 # hrefs creates an HTML hyperlink from a URL with modified anchor text
 function linkit() {
   PROGNAME=`basename $0`
@@ -143,35 +134,4 @@ function killall() {
   done
 
   exit 0
-}
-
-# to7z: converts 
-#
-# Fr1v
-# Andrew Bell <andrewbell8@gmail.com>
-#
-function Cto7z() {
-  setopt LOCAL_OPTIONS EXTENDED_GLOB
-
-  for f in "$@"
-  do
-    local file_ext=${f:e}
-    arepack -F.7z -O-m0=lzma2 -O-mx=9 -O-mfb=64 -O-md=32m -O-ms=on -q -e "$f"
-    rm "${f:r}.${file_ext}"
-    mv "${f:r}.7z" "/Volumes/Installs/macos"
-  done
-  unset LOCAL_OPTIONS EXTENDED_GLOB
-}
-
-function Pto7z() {
-  setopt LOCAL_OPTIONS EXTENDED_GLOB
-
-  for f in "$@"
-  do
-    local file_ext=${f:e}
-    apack -F.7z -O-m0=lzma2 -O-mx=9 -O-mfb=64 -O-md=32m -O-ms=on -q -e "$f"
-    rm "${f}"
-    mv "${f:r}.7z" "/Volumes/Installs/macos"
-  done
-  unset LOCAL_OPTIONS EXTENDED_GLOB
 }

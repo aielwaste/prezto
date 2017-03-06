@@ -8,7 +8,21 @@
 #   Andrew Bell <andrewbell8@gmail.com>
 #
 
-POWERLEVEL9K_MODE='awesome-fontconfig'
+if [[ -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
+	source "${ZDOTDIR:-$HOME}/.zprofile"
+fi
+
+if [[ -s "${ZDOTDIR:-$HOME}/.zpreztorc" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zpreztorc"
+fi
+
+if [[ -s "${ZDOTDIR:-$HOME}/.zfunctions" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zfunctions"
+fi
+
+if [[ -s "${ZDOTDIR:-$HOME}/.secrets" ]]; then
+  source "${ZDOTDIR:-$HOME}/.secrets"
+fi
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then

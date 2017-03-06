@@ -10,41 +10,11 @@ if [[ -f "${HOME}"/.secrets ]]; then
   source "${HOME}"/.secrets
 fi
 
-export 
-
-export POWERLEVEL9K_MODE='awesome-fontconfig'
-export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs node_version custom_newline os_icon status)
-export POWERLEVEL9K_CUSTOM_NEWLINE="print '\n '"
-
 #
 # Browser
 #
 
-export BROWSER='open'
-
-if [[ ! -z $(which brew) ]]; then
-  #install homebrew
-  function install_homebrew() {
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  }
-fi
-
-#
-# Textmate
-#
-
-if [[ -z "$(which mate)" ]]; then
-  export TM_FULLNAME="Andrew Bell"
-  export TM_ORGANIZATION="Fr1v"
-  export TM_GIT="/usr/local/bin/git"
-  export TM_SVN="/usr/local/bin/svn"
-  export TM_HG="/usr/local/bin/hg"
-  export TM_RUBY="/usr/local/bin/ruby"
-  export TM_THEME_PATH="${HOME}/Library/Application Support/TextMate/Managed/Bundles/Themes.tmbundle/Themes"
-  export TM_SUPPORT_PATH="${HOME}/Library/Application Support/TextMate/Managed/Bundles/Bundle Support.tmbundle/Support/shared"
-  export TM_SVN_DIFF_CMD="/usr/local/bin/ksdiff"
-  export TM_HG_EXT_DIFF="/usr/local/bin/ksdiff"
-fi
+export BROWSER='exo-open'
 
 # Gnupg
 GPG_TTY=$(tty)
@@ -148,14 +118,6 @@ fi
 #
 export RANGER_LOAD_DEFAULT_RC=false
 
-#
-# Java
-#
-
-JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
-CLASSPATH=".:${HOME}/Library/Java/junit.jar:$CLASSPATH"
-export JAVA_HOME JAVA_OPTS CLASSPATH
-
 
 # GNU Packages
 gnu_packages=()
@@ -182,61 +144,10 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
-  /Users/fr1v/bin
+  ${HOME}/.zshfunctions
   /usr/local/{bin,sbin}
   /usr/local/share/zsh-completions
   /usr/share/zsh/site-functions
-  export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
-  export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:/usr/local/share/man:$MANPATH"
-  export PATH="$(brew --prefix gettext)/libexec/gnubin:/usr/local/bin:$PATH"
-  export MANPATH="$(brew --prefix gettext)/libexec/gnuman:/usr/local/share/man:$MANPATH"
-  export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
-  export PATH="$(brew --prefix gawk)/libexec/gnubin:/usr/local/bin:$PATH"
-  export MANPATH="$(brew --prefix gawk)/libexec/gnuman:/usr/local/share/man:$MANPATH"
-  export PATH="$(brew --prefix gnu-sed)/libexec/gnubin:/usr/local/bin:$PATH"
-  export MANPATH="$(brew --prefix gnu-sed)/libexec/gnuman:/usr/local/share/man:$MANPATH"
-  export PATH="$(brew --prefix mawk)/libexec/gnubin:/usr/local/bin:$PATH"
-  export MANPATH="$(brew --prefix mawk)/libexec/gnuman:/usr/local/share/man:$MANPATH"
-  export PATH="$(brew --prefix findutils)/libexec/gnubin:/usr/local/bin:$PATH"
-  export MANPATH="$(brew --prefix findutils)/libexec/gnuman:/usr/local/share/man:$MANPATH"
-  export PATH="$(brew --prefix gnu-which)/libexec/gnubin:/usr/local/bin:$PATH"
-  export MANPATH="$(brew --prefix gnu-which)/libexec/gnuman:/usr/local/share/man:$MANPATH"
-  export PATH="$(brew --prefix grep)/libexec/gnubin:/usr/local/bin:$PATH"
-  export MANPATH="$(brew --prefix grep)/libexec/gnuman:/usr/local/share/man:$MANPATH"
-  export PATH="$(brew --prefix binutils)/libexec/gnubin:/usr/local/bin:$PATH"
-  export MANPATH="$(brew --prefix binutils)/libexec/gnuman:/usr/local/share/man:$MANPATH"
-  export PATH="$(brew --prefix diffutils)/libexec/gnubin:/usr/local/bin:$PATH"
-  export MANPATH="$(brew --prefix diffutils)/libexec/gnuman:/usr/local/share/man:$MANPATH"
-  export PATH="$(brew --prefix ed)/libexec/gnubin:/usr/local/bin:$PATH"
-  export MANPATH="$(brew --prefix ed)/libexec/gnuman:/usr/local/share/man:$MANPATH"
-  export PATH="$(brew --prefix gnu-indent)/libexec/gnubin:/usr/local/bin:$PATH"
-  export MANPATH="$(brew --prefix gnu-indent)/libexec/gnuman:/usr/local/share/man:$MANPATH"
-  export PATH="$(brew --prefix gnu-tar)/libexec/gnubin:/usr/local/bin:$PATH"
-  export MANPATH="$(brew --prefix gnu-tar)/libexec/gnuman:/usr/local/share/man:$MANPATH"
-  export PATH="$(brew --prefix gnutls)/libexec/gnubin:/usr/local/bin:$PATH"
-  export MANPATH="$(brew --prefix gnutls)/libexec/gnuman:/usr/local/share/man:$MANPATH"
-  export PATH="$(brew --prefix gzip)/libexec/gnubin:/usr/local/bin:$PATH"
-  export MANPATH="$(brew --prefix gzip)/libexec/gnuman:/usr/local/share/man:$MANPATH"
-  export PATH="$(brew --prefix screen)/libexec/gnubin:/usr/local/bin:$PATH"
-  export MANPATH="$(brew --prefix screen)/libexec/gnuman:/usr/local/share/man:$MANPATH"
-  export PATH="$(brew --prefix watch)/libexec/gnubin:/usr/local/bin:$PATH"
-  export MANPATH="$(brew --prefix watch)/libexec/gnuman:/usr/local/share/man:$MANPATH"
-  export PATH="$(brew --prefix wdiff)/libexec/gnubin:/usr/local/bin:$PATH"
-  export MANPATH="$(brew --prefix wdiff)/libexec/gnuman:/usr/local/share/man:$MANPATH"
-  export PATH="$(brew --prefix wget)/libexec/gnubin:/usr/local/bin:$PATH"
-  export MANPATH="$(brew --prefix wget)/libexec/gnuman:/usr/local/share/man:$MANPATH"
-  export PATH="$(brew --prefix less)/libexec/gnubin:/usr/local/bin:$PATH"
-  export MANPATH="$(brew --prefix less)/libexec/gnuman:/usr/local/share/man:$MANPATH"
-  export PATH="$(brew --prefix gdb)/libexec/gnubin:/usr/local/bin:$PATH"
-  export MANPATH="$(brew --prefix gdb)/libexec/gnuman:/usr/local/share/man:$MANPATH"
-  export PATH="$(brew --prefix gpatch)/libexec/gnubin:/usr/local/bin:$PATH"
-  export MANPATH="$(brew --prefix gpatch)/libexec/gnuman:/usr/local/share/man:$MANPATH"
-  export PATH="$(brew --prefix make)/libexec/gnubin:/usr/local/bin:$PATH"
-  export MANPATH="$(brew --prefix make)/libexec/gnuman:/usr/local/share/man:$MANPATH"
-  export PATH="$(brew --prefix nano)/libexec/gnubin:/usr/local/bin:$PATH"
-  export MANPATH="$(brew --prefix nano)/libexec/gnuman:/usr/local/share/man:$MANPATH"
-  export PATH="$(brew --prefix m4)/libexec/gnubin:/usr/local/bin:$PATH"
-  export MANPATH="$(brew --prefix m4)/libexec/gnuman:/usr/local/share/man:$MANPATH"
   $path
 )
 

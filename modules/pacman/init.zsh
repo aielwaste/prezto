@@ -88,6 +88,13 @@ alias pacU="${_pacman_sudo}${_pacman_frontend}${_pacman_noconfirm} --sync --refr
 
 unset _pacman_{frontend,sudo}
 
+alias pki='packer -S --noconfirm --noedit --devel --skipinteg'
+alias as='allservers'
+alias makef='makepkg --install --syndeps --force --skipinteg  --skipchecksums --skippgpcheck'
+alias ys='yaourt'
+alias yr='yaourt -Rs --noconfirm'
+alias cs='cower --search --by name --color=always --ignore-ood --rsort popularity'
+
 function paclist() {
   # Source: https://bbs.archlinux.org/viewtopic.php?id=93683
   LC_ALL=C pacman -Qei $(pacman -Qu | cut -d " " -f 1) | \
@@ -119,7 +126,7 @@ function pacmanallkeys() {
     xargs sudo pacman-key --recv-keys
 }
 
-function pacmansignkeys() {
+function pacsign() {
   emulate -L zsh
     for key in $*; do
       sudo pacman-key --recv-keys $key
