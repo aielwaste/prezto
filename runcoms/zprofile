@@ -22,6 +22,13 @@ export GPG_TTY
 export MYGPGKEY=37D280F9
 
 #
+# Powerlevel9k
+#
+
+export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir pyenv vcs)
+export POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs)
+
+#
 # Editors
 #
 
@@ -38,8 +45,11 @@ export SNIPPET_AUTHOR="Andrew Bell"
 
 
 #
-# zsh
+# XDG
 #
+
+gsettings set org.gnome.desktop.wm.preferences resize-with-right-button true
+gsettings set org.gnome.desktop.wm.preferences mouse-button-modifier '<Alt>'
 
 #
 # Rbenv
