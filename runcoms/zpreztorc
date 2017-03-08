@@ -36,6 +36,7 @@ zstyle ':prezto:load' pmodule \
   'directory' \
   'spectrum' \
   'k' \
+  'z' \
   'command-not-found' \
   'utility' \
   'completion' \
@@ -68,7 +69,7 @@ zstyle ':prezto:module:editor' dot-expansion 'yes'
 #
 
 # Ignore submodules when they are 'dirty', 'untracked', 'all', or 'none'.
-# zstyle ':prezto:module:git:status:ignore' submodules 'all'
+zstyle ':prezto:module:git:status:ignore' submodules 'dirty'
 
 #
 # GNU Utility
@@ -105,7 +106,7 @@ zstyle ':prezto:module:pacman' noconfirm 'yes'
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
-zstyle ':prezto:module:prompt' theme 'sorin'
+zstyle ':prezto:module:prompt' theme 'powerlevel9k'
 
 #
 # Python

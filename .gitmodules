@@ -22,3 +22,12 @@
 [submodule "modules/revolver"]
 	path = modules/revolver
 	url = https://github.com/andrewbell8/revolver.git
+[submodule "modules/z"]
+	path = modules/z
+	url = https://github.com/rupa/z.git
+[submodule "modules/k"]
+	path = modules/k
+	url = https://github.com/supercrabtree/k.git
+[submodule "modules/prompt/external/powerlevel9k"]
+	path = modules/prompt/external/powerlevel9k
+	url = https://github.com/bhilburn/powerlevel9k.git
