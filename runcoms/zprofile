@@ -14,7 +14,7 @@ fi
 # Browser
 #
 
-export BROWSER='exo-open'
+export BROWSER='xdg-open'
 
 # Gnupg
 GPG_TTY=$(tty)
@@ -33,7 +33,7 @@ export POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs
 #
 
 export PAGER='less'
-export EDITOR='subl -w'
+export EDITOR='subl -n -w'
 export VISUAL="${EDITOR}"
 export GIT_EDITOR='subl -n -w'
 export SVN_EDITOR="${GIT_EDITOR}"
@@ -43,13 +43,6 @@ export ___FULLUSERNAME___="Andrew Bell"
 export ___ORGANIZATIONNAME___="Fr1v"
 export SNIPPET_AUTHOR="Andrew Bell"
 
-
-#
-# XDG
-#
-
-gsettings set org.gnome.desktop.wm.preferences resize-with-right-button true
-gsettings set org.gnome.desktop.wm.preferences mouse-button-modifier '<Alt>'
 
 #
 # Rbenv
@@ -122,6 +115,10 @@ if [[ -d "${HOME}/.rbenv" ]]; then
   fi
 fi
 
+#
+# Rust
+#
+export PATH="${HOME}/.cargo/bin:${PATH}"
 
 #
 # Ranger
@@ -154,8 +151,8 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
-  ${HOME}/.zshfunctions
   /usr/local/{bin,sbin}
+  ${HOME}/bin
   /usr/local/share/zsh-completions
   /usr/share/zsh/site-functions
   $path

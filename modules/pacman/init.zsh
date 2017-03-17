@@ -94,6 +94,7 @@ alias makef='makepkg --install --syndeps --force --skipinteg  --skipchecksums --
 alias ys='yaourt'
 alias yr='yaourt -Rs --noconfirm'
 alias cs='cower --search --by name --color=always --ignore-ood --rsort popularity'
+alias bi='sudo bauerbill -Syu --noconfirm'
 
 function paclist() {
   # Source: https://bbs.archlinux.org/viewtopic.php?id=93683
