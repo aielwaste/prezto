@@ -28,6 +28,7 @@
 [submodule "modules/k"]
 	path = modules/k
 	url = https://github.com/supercrabtree/k.git
+	branch = master
 [submodule "modules/prompt/external/powerlevel9k"]
 	path = modules/prompt/external/powerlevel9k
 	url = https://github.com/bhilburn/powerlevel9k.git
