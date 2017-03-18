@@ -8,16 +8,14 @@
 #   Andrew Bell <andrewbell8@gmail.com>
 #
 
+export TERM="xterm-256color"
+
 if [[ -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
 	source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
 
 if [[ -s "${ZDOTDIR:-$HOME}/.zpreztorc" ]]; then
   source "${ZDOTDIR:-$HOME}/.zpreztorc"
-fi
-
-if [[ -s "${ZDOTDIR:-$HOME}/.zfunctions" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zfunctions"
 fi
 
 if [[ -s "${ZDOTDIR:-$HOME}/.secrets" ]]; then
