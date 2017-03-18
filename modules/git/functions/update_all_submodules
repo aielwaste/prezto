@@ -1,0 +1,7 @@
+#!/usr/bin/zsh
+
+function update_all_submodules() {
+  git submodule foreach --recursive git submodule update --init
+}
+
+update_all_submodules "$@"

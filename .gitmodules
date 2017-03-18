@@ -31,4 +31,4 @@
 	branch = master
 [submodule "modules/prompt/external/powerlevel9k"]
 	path = modules/prompt/external/powerlevel9k
-	url = https://github.com/bhilburn/powerlevel9k.git
+	url = https://github.com/andrewbell8/powerlevel9k

@@ -1,0 +1,8 @@
+#!/usr/bin/zsh
+
+function sync_repo() {
+  git pull upstream master
+  git push origin master
+}
+
+sync_repo "$@"
