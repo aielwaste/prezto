@@ -1,0 +1,8 @@
+# print out files that dont have extensions
+function find_no_ext() {
+  printf '%s\n' ^?*.*
+  printf '%s\n' ^?*.[^.]*(D)
+  ls -d -- ^?*.*(D)
+}
+
+find_no_ext "$@"

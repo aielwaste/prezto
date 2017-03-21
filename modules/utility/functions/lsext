@@ -1,0 +1,15 @@
+# 
+# lsext
+#
+# list of files in the current directory, which has the given extension argument
+# 
+# Andrew Bell <andrewbell8@gmail.com>
+# Fr1v @ https://fr1v.github.com
+#
+
+function lsext()
+{
+  find . -type f -iname '*.'${1}'' -exec ls -l {} \; ;
+}
+
+lsext "$@"

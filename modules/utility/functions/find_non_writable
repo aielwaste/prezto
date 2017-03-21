@@ -1,0 +1,6 @@
+# find all files that don’t have the write permission to group in current directory and all subdirectories
+function find_non_writable() {
+  ls **/*(.:g-w:)
+}
+
+find_non_writable "$@"

@@ -1,0 +1,15 @@
+# hrefs creates an HTML hyperlink from a URL with modified anchor text
+function linkit() {
+  PROGNAME=`basename $0`
+  url=`cat /dev/clipboard`
+  if [ "$PROGNAME" = "href" ] ; then
+    href="<a href='$url'>$url"
+  elif [ "$PROGNAME" = "hrefs" ] ; then 
+    anchortext=${${(C)url//[_-]/ }:t}
+    href="<a href='$url'>$anchortext"
+  fi
+  echo -n $col
+  echo $href > /dev/clipboard | more
+}
+
+linkit "$@"
