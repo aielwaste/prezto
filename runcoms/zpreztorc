@@ -26,26 +26,48 @@ zstyle ':prezto:load' zfunction 'zargs' 'zmv'
 # The order matters.
 # Set the Prezto modules to load (browse modules).
 # The order matters.
-zstyle ':prezto:load' pmodule \
-  'environment' \
-  'terminal' \
-  'git' \
-  'autosuggestions' \
-  'editor' \
-  'history' \
-  'directory' \
-  'spectrum' \
-  'k' \
-  'z' \
-  'command-not-found' \
-  'utility' \
-  'completion' \
-  'fasd' \
-  'python' \
-  'pacman' \
-  'history-substring-search' \
-  'syntax-highlighting' \
-  'prompt'
+if [[ $OSTYPE == *darwin* ]]; then
+  zstyle ':prezto:load' pmodule \
+    'environment' \
+    'terminal' \
+    'git' \
+    'autosuggestions' \
+    'editor' \
+    'homebrew' \
+    'history' \
+    'directory' \
+    'spectrum' \
+    'k' \
+    'command-not-found' \
+    'utility' \
+    'completion' \
+    'fasd' \
+    'python' \
+    'osx' \
+    'history-substring-search' \
+    'syntax-highlighting' \
+    'prompt'
+elif [[ $OSTYPE == *linux* ]] && [[ $(uname -r) == *ARCH* || *MANJARO* ]] ; then
+  zstyle ':prezto:load' pmodule \
+    'environment' \
+    'terminal' \
+    'git' \
+    'autosuggestions' \
+    'editor' \
+    'history' \
+    'directory' \
+    'spectrum' \
+    'k' \
+    'command-not-found' \
+    'utility' \
+    'completion' \
+    'fasd' \
+    'python' \
+    'pacman' \
+    'history-substring-search' \
+    'syntax-highlighting' \
+    'prompt'
+fi
 
 #
 # Autosuggestions
@@ -181,5 +203,11 @@ zstyle ':prezto:module:tmux:auto-start' local 'yes'
 # Auto start a session when Zsh is launched in a SSH connection.
 zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 
-# Integrate with iTerm2.
-# zstyle ':prezto:module:tmux:iterm' integrate 'yes'
+
+#
+# iterm
+#
+
+if [[ $OSTYPE == *darwin* ]] ; then
+  zstyle ':prezto:module:tmux:iterm' integrate 'yes'
+fi
