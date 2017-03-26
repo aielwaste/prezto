@@ -1,0 +1,13 @@
+#!/bin/sh
+
+function pkginfo() {
+	emulate zsh
+
+	pacman -Q $1
+	echo
+	pacman -Ql $1
+	echo
+	pacman -Qk $1	 
+}
+
+pkginfo "$@"

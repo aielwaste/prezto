@@ -25,6 +25,3 @@
 [submodule "modules/prompt/external/powerlevel9k"]
 	path = modules/prompt/external/powerlevel9k
 	url = https://github.com/andrewbell8/powerlevel9k.git
-[submodule "modules/z"]
-	path = modules/z
-	url = https://github.com/supercrabtree/k.git
