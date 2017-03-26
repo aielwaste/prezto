@@ -6,6 +6,7 @@
 #   Andrew Bell <andrewbell8@gmail.com>
 #
 
+<<<<<<< HEAD
 #
 # Powerlevel9k
 #
@@ -121,6 +122,77 @@ elif [[ $OSTYPE == *linux* ]] && [[ $(uname -r) == *ARCH* || $(uname -r) == *MAN
   )
 fi
 
+=======
+if [[ -d "~/Dropbox/bin" ]]; then
+  rm -rf "~/bin" && ln -sd ~/Dropbox/bin ~/bin
+fi
+
+if [[ $OSTYPE == *darwin* ]]; then
+
+  if [[ -f "$HOME"/.secrets ]]; then
+    source "$HOME"/.secrets
+  fi
+
+  export BROWSER='open'
+
+  #
+  # homebrew
+  #
+
+  export HOMEBREW_GITHUB_API_TOKEN="$MY_BREW_TOKEN"
+
+  if [[ -z $(which brew) ]]; then
+    #install homebrew
+    function install_homebrew() {
+      ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    }
+
+    install_homebrew
+  fi
+  export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+  export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:/usr/local/share/man:$MANPATH"
+
+  #
+  # Java
+  #
+
+  JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
+  CLASSPATH=".:$HOME/Library/Java/junit.jar:$CLASSPATH"
+  export JAVA_HOME JAVA_OPTS CLASSPATH
+
+  #
+  # fpath
+  #
+
+  path=(
+    $HOME/bin
+    /usr/local/{bin,sbin}
+    $path
+  )
+
+
+elif [[ $OSTYPE == *linux* ]] && [[ $(uname -r) == *ARCH* || $(uname -r) == *MANJARO* ]] ; then
+  export BROWSER='xdg-open'
+
+  #
+  # fpath
+  #
+
+  path=(
+    $HOME/bin
+    /usr/{bin,sbin}
+    $path
+  )
+fi
+
+#
+# Gnupg
+#
+
+GPG_TTY=$(tty)
+export GPG_TTY
+export MYGPGKEY=37D280F9
+>>>>>>> 298081ec7200de4311a6378a34943524890478ea
 
 #
 # Gnupg
@@ -137,11 +209,19 @@ export MYGPGKEY="$MY_GPG_KEY"
 
 export PAGER=less
 export EDITOR='subl -n -w'
+<<<<<<< HEAD
 export VISUAL=$EDITOR
 export GIT_EDITOR=$VISUAL
 export SVN_EDITOR=$VISUAL
 export HG_EDITOR=$VISUAL
 export HOMEBREW_EDITOR=$VISUAL
+=======
+export VISUAL="$EDITOR"
+export GIT_EDITOR='subl -n -w'
+export SVN_EDITOR="$GIT_EDITOR"
+export HG_EDITOR="$GIT_EDITOR"
+export HOMEBREW_EDITOR="$GIT_EDITOR"
+>>>>>>> 298081ec7200de4311a6378a34943524890478ea
 export ___FULLUSERNAME___="Andrew Bell"
 export ___ORGANIZATIONNAME___="Fr1v"
 export SNIPPET_AUTHOR="Andrew Bell"
@@ -164,6 +244,14 @@ if [[ -d "$HOME/.rbenv" ]]; then
   if which rbenv > /dev/null; then
     eval "$(rbenv init -)"
   fi
+<<<<<<< HEAD
+=======
+
+  # rbenv completions
+  if [[ -f "$HOME/.rbenv/completions/rbenv.zsh" ]]; then
+    source "$HOME/.rbenv/completions/rbenv.zsh"
+  fi
+>>>>>>> 298081ec7200de4311a6378a34943524890478ea
 fi
 
 
@@ -180,6 +268,14 @@ if [[ -d "$HOME/.pyenv" ]]; then
   if which pyenv > /dev/null; then
     eval "$(pyenv init -)"
   fi
+<<<<<<< HEAD
+=======
+
+  # pyenv completions
+  if [[ -f "$HOME/.pyenv/completions/pyenv.zsh" ]]; then
+    source "$HOME/.pyenv/completions/pyenv.zsh"
+  fi
+>>>>>>> 298081ec7200de4311a6378a34943524890478ea
 fi
 
 
@@ -206,6 +302,15 @@ if [[ -d "$HOME/.rbenv" ]]; then
 
   # nodenv init
   eval "$(nodenv init -)"
+<<<<<<< HEAD
+fi
+
+=======
+
+  # nodenv completions
+  if [[ -f "$HOME/.nodenv/completions/nodenv.zsh" ]]; then
+    source "$HOME/.nodenv/completions/nodenv.zsh"
+  fi
 fi
 
 
@@ -216,6 +321,30 @@ fi
 export RUST_SRC_PATH="$HOME/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/x86_64-apple-darwin/lib/rustlib/src/rust/src"
 export PATH="$HOME/.cargo/bin:$PATH"
 
+>>>>>>> 298081ec7200de4311a6378a34943524890478ea
+
+#
+# Rust
+#
+
+export RUST_SRC_PATH="$HOME/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/x86_64-apple-darwin/lib/rustlib/src/rust/src"
+export PATH="$HOME/.cargo/bin:$PATH"
+
+<<<<<<< HEAD
+=======
+#
+# Paths
+#
+
+# Ensure path arrays do not contain duplicates.
+typeset -gU cdpath fpath mailpath path
+
+# Set the the list of directories that cd searches.
+# cdpath=(
+#   $cdpath
+# )
+
+>>>>>>> 298081ec7200de4311a6378a34943524890478ea
 
 #
 # Less
@@ -231,7 +360,6 @@ export LESS='--tabs=4 --no-init --LONG-PROMPT --ignore-case --quit-if-one-screen
 if (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
-
 
 #
 # Temporary Files
