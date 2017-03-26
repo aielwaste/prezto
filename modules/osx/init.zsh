@@ -5,6 +5,10 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+if [[ -f "~/.zprezto/modules/osx/alias.suffix.zsh" ]]; then
+  source "~/.zprezto/modules/osx/alias.suffix.zsh"
+fi
+
 # Return if requirements are not found.
 if [[ "$OSTYPE" != darwin* ]]; then
   return 1

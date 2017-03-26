@@ -17,7 +17,7 @@
 zstyle ':prezto:*:*' color 'yes'
 
 # Set the Zsh modules to load (man zshmodules).
-# zstyle ':prezto:load' zmodule 'attr' 'stat'
+zstyle ':prezto:load' zmodule 'attr' 'stat'
 
 # Set the Zsh functions to load (man zshcontrib).
 zstyle ':prezto:load' zfunction 'zargs' 'zmv'
@@ -26,26 +26,48 @@ zstyle ':prezto:load' zfunction 'zargs' 'zmv'
 # The order matters.
 # Set the Prezto modules to load (browse modules).
 # The order matters.
-zstyle ':prezto:load' pmodule \
-  'environment' \
-  'terminal' \
-  'git' \
-  'autosuggestions' \
-  'homebrew' \
-  'editor' \
-  'history' \
-  'directory' \
-  'spectrum' \
-  'k' \
-  'command-not-found' \
-  'utility' \
-  'completion' \
-  'fasd' \
-  'python' \
-  'osx' \
-  'history-substring-search' \
-  'syntax-highlighting' \
-  'prompt'
+if [[ $OSTYPE == *darwin* ]]; then
+  zstyle ':prezto:load' pmodule \
+    'environment' \
+    'terminal' \
+    'git' \
+    'autosuggestions' \
+    'editor' \
+    'homebrew' \
+    'history' \
+    'directory' \
+    'spectrum' \
+    'k' \
+    'command-not-found' \
+    'utility' \
+    'completion' \
+    'fasd' \
+    'python' \
+    'osx' \
+    'history-substring-search' \
+    'syntax-highlighting' \
+    'prompt'
+elif [[ $OSTYPE == *linux* ]] && [[ $(uname -r) == *ARCH* || *MANJARO* ]] ; then
+  zstyle ':prezto:load' pmodule \
+    'environment' \
+    'terminal' \
+    'git' \
+    'autosuggestions' \
+    'editor' \
+    'history' \
+    'directory' \
+    'spectrum' \
+    'k' \
+    'command-not-found' \
+    'utility' \
+    'completion' \
+    'fasd' \
+    'python' \
+    'pacman' \
+    'history-substring-search' \
+    'syntax-highlighting' \
+    'prompt'
+fi
 
 #
 # Autosuggestions
@@ -69,7 +91,7 @@ zstyle ':prezto:module:editor' dot-expansion 'yes'
 #
 
 # Ignore submodules when they are 'dirty', 'untracked', 'all', or 'none'.
-# zstyle ':prezto:module:git:status:ignore' submodules 'all'
+zstyle ':prezto:module:git:status:ignore' submodules 'dirty'
 
 #
 # GNU Utility
@@ -96,7 +118,7 @@ zstyle ':prezto:module:editor' dot-expansion 'yes'
 #
 
 # Set the Pacman frontend.
-zstyle ':prezto:module:pacman' frontend 'packer'
+zstyle ':prezto:module:pacman' frontend 'pacman'
 zstyle ':prezto:module:pacman' noconfirm 'yes'
 
 #
@@ -121,22 +143,13 @@ zstyle ':prezto:module:python:info:virtualenv' format 'virtualenv:%v'
 # Auto switch the Ruby version on directory change.
 # zstyle ':prezto:module:ruby:chruby' auto-switch 'yes'
 
-#
-# Screen
-#
-
-# Auto start a session when Zsh is launched in a local terminal.
-# zstyle ':prezto:module:screen:auto-start' local 'yes'
-
-# Auto start a session when Zsh is launched in a SSH connection.
-# zstyle ':prezto:module:screen:auto-start' remote 'yes'
 
 #
 # SSH
 #
 
 # Set the SSH identities to load into the agent.
-zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_github' 'andrewbell8_GitHub' 'andrewbell8_Bitbucket' 'id_rsa_launchpad'
+zstyle ':prezto:module:ssh:load' identities 'frivbook_rsa' 'id_github' 'andrewbell8_GitHub' 'andrewbell8@Bell-Family-iMac_rsa' 'id_rsa_launchpad' 'fr1v-Bitbucket' 'id_rsa_savannahgnu' 'github_rsa'
 
 #
 # Syntax Highlighting
@@ -181,5 +194,11 @@ zstyle ':prezto:module:tmux:auto-start' local 'yes'
 # Auto start a session when Zsh is launched in a SSH connection.
 zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 
-# Integrate with iTerm2.
-zstyle ':prezto:module:tmux:iterm' integrate 'yes'
+
+#
+# iterm
+#
+
+if [[ $OSTYPE == *darwin* ]] ; then
+  zstyle ':prezto:module:tmux:iterm' integrate 'yes'
+fi

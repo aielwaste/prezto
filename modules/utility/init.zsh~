@@ -207,6 +207,11 @@ function empty() {
   [ -z $REPLY/*(DN[1]) ]
 }
 
+# Alias Editing
+function TRAPHUP() {
+  source $HOME/.dotfiles/zsh/aliases.zsh
+}
+
 # Open Sublime Text Projects
 function sp() {
   subl --command 'close_project' '$1'
