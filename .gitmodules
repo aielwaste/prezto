@@ -22,3 +22,6 @@
 [submodule "modules/rcm/external"]
 	path = modules/rcm/external
 	url = https://github.com/thoughtbot/rcm.git
+[submodule "modules/zplug"]
+	path = modules/zplug
+	url = https://github.com/zplug/zplug
