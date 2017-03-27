@@ -329,5 +329,5 @@ function pty() {
 
 function ptyless() {
   pty $@ | less
-}
+} 
 
