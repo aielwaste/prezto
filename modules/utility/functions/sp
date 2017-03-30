@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+# Open Sublime Project
+#
+
+
+# Open Sublime Text Projects
+function sp() {
+    local project_name
+    project_name=$1
+    sleep 0.2
+    subl --project $1
+    # subl --project '/Users/fr1v/Library/Application Support/Sublime Text 3/Packages/User/ProjectManager/$1.sublime-project'
+}
+
+sp "$@"
