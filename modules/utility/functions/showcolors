@@ -1,0 +1,11 @@
+#!/bin/bash
+#
+# Andrew Bell <andrewbell8@gmail.com>
+# fr1v @ https://fr1v.github.io
+#
+
+function showcolors() {
+    for code ({000..255}) print -P -- "$code: %F{$code}"
+}
+
+showcolors "$@"
