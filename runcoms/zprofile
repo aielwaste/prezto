@@ -10,25 +10,10 @@
 # Powerlevel9k
 #
 # {{
-
     POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir vcs)
     POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode root_indicator status)
-
-
     POWERLEVEL9K_ALWAYS_SHOW_CONTEXT=false
     POWERLEVEL9K_ALWAYS_SHOW_USER=false
-    # POWERLEVEL9K_BATTERY_CHARGED_BACKGROUND="black"
-    # POWERLEVEL9K_BATTERY_CHARGED_FOREGROUND="249"
-    # POWERLEVEL9K_BATTERY_CHARGED_VISUAL_IDENTIFIER_COLOR="green"
-    # POWERLEVEL9K_BATTERY_CHARGING_BACKGROUND="black"
-    # POWERLEVEL9K_BATTERY_CHARGING_FOREGROUND="249"
-    # POWERLEVEL9K_BATTERY_CHARGING_VISUAL_IDENTIFIER_COLOR="yellow"
-    # POWERLEVEL9K_BATTERY_DISCONNECTED_BACKGROUND="black"
-    # POWERLEVEL9K_BATTERY_DISCONNECTED_FOREGROUND="249"
-    # POWERLEVEL9K_BATTERY_DISCONNECTED_VISUAL_IDENTIFIER_COLOR="249"
-    # POWERLEVEL9K_BATTERY_LOW_BACKGROUND="black"
-    # POWERLEVEL9K_BATTERY_LOW_FOREGROUND="249"
-    # POWERLEVEL9K_BATTERY_LOW_VISUAL_IDENTIFIER_COLOR="red"
     POWERLEVEL9K_DIR_DEFAULT_BACKGROUND="black"
     POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="249"
     POWERLEVEL9K_DIR_HOME_BACKGROUND="black"
@@ -36,45 +21,17 @@
     POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="black"
     POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="249"
     POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=$'\uE0B1'
-    # POWERLEVEL9K_LOAD_CRITICAL_BACKGROUND="black"
-    # POWERLEVEL9K_LOAD_CRITICAL_FOREGROUND="249"
-    # POWERLEVEL9K_DIR_OMIT_FIRST_CHARACTER=true
-    # POWERLEVEL9K_LOAD_CRITICAL_VISUAL_IDENTIFIER_COLOR="red"
-    # POWERLEVEL9K_LOAD_NORMAL_BACKGROUND="black"
-    # POWERLEVEL9K_LOAD_NORMAL_FOREGROUND="249"
-    # POWERLEVEL9K_LOAD_NORMAL_VISUAL_IDENTIFIER_COLOR="green"
-    # POWERLEVEL9K_LOAD_WARNING_BACKGROUND="black"
-    # POWERLEVEL9K_LOAD_WARNING_FOREGROUND="249"
-    # POWERLEVEL9K_LOAD_WARNING_VISUAL_IDENTIFIER_COLOR="yellow"
     POWERLEVEL9K_MODE="awesome-patched"
-    # POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="↱%{%F{249}%}\u250f"
-    # ↱ ↳❡
-    # POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="↳%{%F{249}%}\u2517%{%F{default}%} "
     POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="↱"
     POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="↳ "
-
-    # POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="↱"
-    POWERLEVEL9K_MUTLILINE_FIRST_RPROMPT_PREFIX=
-    # POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="↳"
-    POWERLEVEL9K_MUTLILINE_SECOND_RPROMPT_PREFIX=
-
-    POWERLEVEL9K_NVM_BACKGROUND="black"
-    POWERLEVEL9K_NVM_FOREGROUND="249"
-    POWERLEVEL9K_NVM_VISUAL_IDENTIFIER_COLOR="green"
-    POWERLEVEL9K_OS_ICON_BACKGROUND=""
+    POWERLEVEL9K_OS_ICON_BACKGROUND="black"
     POWERLEVEL9K_OS_ICON_FOREGROUND="249"
     POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
     POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-    # POWERLEVEL9K_RAM_BACKGROUND="black"
-    # POWERLEVEL9K_RAM_ELEMENTS=(ram_free)
-    # POWERLEVEL9K_RAM_FOREGROUND="249"
     POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=$'\uE0B3'
     POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
-    # POWERLEVEL9K_RVM_BACKGROUND="black"
-    # POWERLEVEL9K_RVM_FOREGROUND="249"
     POWERLEVEL9K_VI_INSERT_MODE_STRING="INSERT"
     POWERLEVEL9K_VI_COMMAND_MODE_STRING="NORMAL"
-    # POWERLEVEL9K_RVM_VISUAL_IDENTIFIER_COLOR="red"
     POWERLEVEL9K_SHORTEN_DIR_LENGTH=4
     POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
     POWERLEVEL9K_STATUS_ERROR_BACKGROUND="black"
@@ -85,229 +42,229 @@
     POWERLEVEL9K_STATUS_BACKGROUND='black'
     POWERLEVEL9K_CONTEXT_BACKGROUND='black'
     POWERLEVEL9K_CONTEXT_FOREGROUND='252'
-    POWERLEVEL9K_TIME_BACKGROUND='black'
-    POWERLEVEL9K_TIME_FOREGROUND='252'
     POWERLEVEL9K_HISTORY_BACKGROUND='black'
     POWERLEVEL9K_HISTORY_FOREGROUND='252'
     POWERLEVEL9K_STATUS_VERBOSE=false
-    POWERLEVEL9K_TIME_BACKGROUND=''
-    # POWERLEVEL9K_TIME_FOREGROUND="249"
-    # POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S} \UE12E"
-    POWERLEVEL9K_TODO_BACKGROUND='black'
-    # POWERLEVEL9K_TODO_FOREGROUND="249"
-    # POWERLEVEL9K_VCS_FOREGROUND=
     POWERLEVEL9K_VCS_BACKGROUND='black'
-    # POWERLEVEL9K_VCS_CLEAN_FOREGROUND='blue'
+    POWERLEVEL9K_VCS_FOREGROUND='171'
+    POWERLEVEL9K_VCS_CLEAN_FOREGROUND='171'
     POWERLEVEL9K_VCS_CLEAN_BACKGROUND='black'
-    # POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='yellow'
+    POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='yellow'
     POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='black'
-    # POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='red'
+    POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='red'
     POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='black'
-
-    # Advanced `vi_mode` color customization
-    POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND='teal'
-    ZSH_THEME="powerlevel9k/powerlevel9k"
-
-#}}
+    ZSH_THEME="powerlevel9k/powerlevel9k" #}}
 
 
-# Ensure path arrays do not contain duplicates.
-typeset -gU cdpath dfpath mailpath path
-
-if [[ -d "~/Dropbox/bin" ]]; then
-  rm -rf "~/bin" && ln -sd ~/Dropbox/bin ~/bin
-fi
-
-if [[ $OSTYPE == *darwin* ]]; then
-
-  if [[ -f "$HOME"/.secrets ]]; then
-    source "$HOME"/.secrets
-  fi
-
-    #
-    # fpath
-    #
-
-    path=(
-        $HOME/bin
-        /usr/local/{bin,sbin}
-        $path
-    )
-
-  export BROWSER='open'
-
-  #
-  # homebrew
-  #
-
-  export HOMEBREW_GITHUB_API_TOKEN="$MY_HOMEBREW_GITHUB_API_TOKEN"
-
-  # homebrew check
-  if [[ -z $(which brew) ]]; then
-    #install homebrew
-    function install_homebrew() {
-      ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    }
-
-    install_homebrew
-  fi
-
-  export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
-  export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:/usr/local/share/man:$MANPATH"
-
-  #
-  # Java
-  #
-
-  JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
-  CLASSPATH=".:$HOME/Library/Java/junit.jar:$CLASSPATH"
-  export JAVA_HOME JAVA_OPTS CLASSPATH
-
-  export GOROOT=$HOME/.go
-  export PATH=$PATH:/usr/local/opt/go/libexec/bin
-
-  #
-  # fpath
-  #
-
-  path=(
-    $HOME/bin
-    /usr/local/{bin,sbin}
-    $path
-  )
+#
+# user bin
+#
+# {{
+    if [[ -d "~/Dropbox/bin" ]]; then
+        rm -rfv "${ZDOTDIR:-$HOME}"/bin && ln -sdv ~/Dropbox/bin "${ZDOTDIR:-$HOME}"/bin
+    fi # }}
 
 
-elif [[ $OSTYPE == *linux* ]] && [[ $(uname -r) == *ARCH* || $(uname -r) == *MANJARO* ]] ; then
+#
+# macos path setup
+#
+# {{
+    if [[ $OSTYPE == *darwin* ]]; then
+        # Ensure path arrays do not contain duplicates.
+        typeset -gU cdpath dfpath mailpath path
 
-  export BROWSER='xdg-open'
+        if [[ -f "$HOME"/.secrets ]]; then
+        source "$HOME"/.secrets
+        fi
+
+        #
+        # fpath
+        #
+        # {{
+            path=(
+                "${ZDOTDIR:-$HOME}"/bin
+                /usr/local/{bin,sbin}
+                $path
+            )
+        # }}
+
+        export BROWSER='open'
+
+        #
+        # homebrew
+        #
+        # {{
+            if [[ -z $(which brew) ]]; then
+                function install_homebrew() {
+                  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+                }
+
+                install_homebrew
+            fi
+
+            export HOMEBREW_GITHUB_API_TOKEN="$MY_HOMEBREW_GITHUB_API_TOKEN"
+            export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+            export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:/usr/local/share/man:$MANPATH"
+        # }}
+
+        #
+        # Java
+        #
+        # {{
+
+            JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
+            CLASSPATH=".:$HOME/Library/Java/junit.jar:$CLASSPATH"
+            export JAVA_HOME JAVA_OPTS CLASSPATH
+        # }}
+
+        #
+        # go
+        #
+        # {{
+            export GOROOT=$HOME/.go
+            export PATH=$PATH:/usr/local/opt/go/libexec/bin
+        # }}
 
 
-  #
-  # fpath
-  #
+#
+# linux path setup
+#
+# {{
+    elif [[ $OSTYPE == *linux* ]] && [[ $(uname -r) == *ARCH* || $(uname -r) == *MANJARO* ]] ; then
+        # Ensure path arrays do not contain duplicates.
+        typeset -gU cdpath dfpath mailpath path
+        
+        export BROWSER='xdg-open'
 
-  path=(
-    $HOME/bin
-    /usr/{bin,sbin}
-    $path
-  )
-fi
+        #
+        # fpath
+        #
+        # {{
+
+            path=(
+                "${ZDOTDIR:-$HOME}"/bin
+                /usr/{bin,sbin}
+                $path
+            )
+        # }}
+    fi
+# }}
 
 
 #
 # Gnupg
 #
-
-GPG_TTY=$(tty)
-export GPG_TTY
-export MYGPGKEY="$MY_GPG_KEY"
-export QT_AUTO_SCREEN_SCALE_FACTOR=0
+# {{
+    GPG_TTY=$(tty)
+    export GPG_TTY
+    export MYGPGKEY="$MY_GPG_KEY"
+    export QT_AUTO_SCREEN_SCALE_FACTOR=0 # }}
 
 
 #
 # Editors
 #
-
-export PAGER=less
-export EDITOR='subl -n -w'
-export VISUAL=$EDITOR
-export GIT_EDITOR=$VISUAL
-export SVN_EDITOR=$VISUAL
-export HG_EDITOR=$VISUAL
-export HOMEBREW_EDITOR=$VISUAL
-export ___FULLUSERNAME___="Andrew Bell"
-export ___ORGANIZATIONNAME___="Fr1v"
-export SNIPPET_AUTHOR="Andrew Bell"
-export LANG=en_US.UTF-8
-umask 022
-
+# {{
+    export PAGER=less
+    export EDITOR='subl -n -w'
+    export VISUAL=$EDITOR
+    export GIT_EDITOR=$VISUAL
+    export SVN_EDITOR=$VISUAL
+    export HG_EDITOR=$VISUAL
+    export HOMEBREW_EDITOR=$VISUAL
+    export ___FULLUSERNAME___="Andrew Bell"
+    export ___ORGANIZATIONNAME___="Fr1v"
+    export SNIPPET_AUTHOR="Andrew Bell"
+    export LANG=en_US.UTF-8
+    umask 022 # }}
 
 
 #
-# Rbenv
+# rbenv
 #
+# {{
+    if [[ -d "$HOME/.rbenv" ]]; then
+      export PROJECT_HOME="${ZDOTDIR:-$HOME}"/code
+      export RBENV_ROOT="${ZDOTDIR:-$HOME}"/.rbenv
+      export RBENV_DIR="$PWD"
+      export PATH="$RBENV_ROOT/bin:$PATH"
 
-if [[ -d "$HOME/.rbenv" ]]; then
-  export PROJECT_HOME="${ZDOTDIR:-$HOME}"/code
-  export RBENV_ROOT="${ZDOTDIR:-$HOME}"/.rbenv
-  export RBENV_DIR="$PWD"
-  export PATH="$RBENV_ROOT/bin:$PATH"
+      # rbenv init
+      if which rbenv > /dev/null; then
+        eval "$(rbenv init -)"
+      fi
 
-  # rbenv init
-  if which rbenv > /dev/null; then
-    eval "$(rbenv init -)"
-  fi
-
-  # rbenv completions
-  if [[ -f "$HOME/.rbenv/completions/rbenv.zsh" ]]; then
-    source "$HOME/.rbenv/completions/rbenv.zsh"
-  fi
-fi
+      # rbenv completions
+      if [[ -f "$HOME/.rbenv/completions/rbenv.zsh" ]]; then
+        source "$HOME/.rbenv/completions/rbenv.zsh"
+      fi
+    fi # }}
 
 
 #
 # pyenv
 #
+# {{
+    if [[ -d "$HOME/.pyenv" ]]; then
+      export PYENV_ROOT="${ZDOTDIR:-$HOME}/.pyenv"
+      export PYENV_DIR="$PWD"
+      export PATH="$PYENV_ROOT/bin:$PATH"
 
-if [[ -d "$HOME/.pyenv" ]]; then
-  export PYENV_ROOT="${ZDOTDIR:-$HOME}/.pyenv"
-  export PYENV_DIR="$PWD"
-  export PATH="$PYENV_ROOT/bin:$PATH"
+      # pyenv init
+      if which pyenv > /dev/null; then
+        eval "$(pyenv init -)"
+      fi
 
-  # pyenv init
-  if which pyenv > /dev/null; then
-    eval "$(pyenv init -)"
-  fi
-
-  # pyenv completions
-  if [[ -f "$HOME/.pyenv/completions/pyenv.zsh" ]]; then
-    source "$HOME/.pyenv/completions/pyenv.zsh"
-  fi
-fi
+      # pyenv completions
+      if [[ -f "$HOME/.pyenv/completions/pyenv.zsh" ]]; then
+        source "$HOME/.pyenv/completions/pyenv.zsh"
+      fi
+    fi # }}
 
 
 #
 # pyenv-virtualenv
 #
+# {{
+    if which pyenv-virtualenv-init > /dev/null; then
+      eval "$(pyenv virtualenv-init -)"
+    fi
 
-if which pyenv-virtualenv-init > /dev/null; then
-  eval "$(pyenv virtualenv-init -)"
-fi
-
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+    export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+    export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages' # }}
 
 
 #
 # Rust
 #
-
-export RUST_SRC_PATH="$HOME/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/x86_64-apple-darwin/lib/rustlib/src/rust/src"
-export PATH="$HOME/.cargo/bin:$PATH"
+# {{
+    export RUST_SRC_PATH="$HOME/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/x86_64-apple-darwin/lib/rustlib/src/rust/src"
+    export PATH="$HOME/.cargo/bin:$PATH" # }}
 
 
 #
 # Less
 #
+# {{
+    # Set the default Less options.
+    # Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
+    # Remove -X and -F (exit if the content fits on one screen) to enable it.
+    export LESS='--tabs=4 --no-init --LONG-PROMPT --ignore-case --quit-if-one-screen --RAW-CONTROL-CHARS'
 
-# Set the default Less options.
-# Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
-# Remove -X and -F (exit if the content fits on one screen) to enable it.
-export LESS='--tabs=4 --no-init --LONG-PROMPT --ignore-case --quit-if-one-screen --RAW-CONTROL-CHARS'
+    # Set the Less input preprocessor.
+    # Try both `lesspipe` and `lesspipe.sh` as either might exist on a system.
+    if (( $#commands[(i)lesspipe(|.sh)] )); then
+        export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
+    fi # }}
 
-# Set the Less input preprocessor.
-# Try both `lesspipe` and `lesspipe.sh` as either might exist on a system.
-if (( $#commands[(i)lesspipe(|.sh)] )); then
-  export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
-fi
 
 #
 # Temporary Files
 #
+# {{
+    if [[ ! -d "$TMPDIR" ]]; then
+        export TMPDIR="/tmp/$LOGNAME"
+        mkdir -p -m 700 "$TMPDIR"
+    fi
 
-if [[ ! -d "$TMPDIR" ]]; then
-  export TMPDIR="/tmp/$LOGNAME"
-  mkdir -p -m 700 "$TMPDIR"
-fi
-
-TMPPREFIX="${TMPDIR%/}/zsh"
+    TMPPREFIX="${TMPDIR%/}/zsh" # }}

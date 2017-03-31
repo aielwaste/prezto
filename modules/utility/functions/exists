@@ -1,0 +1,10 @@
+#!/bin/bash
+# base utility function
+
+emulate -L zsh
+
+function exists() {
+	test -x "$(command -v "$1")"
+}
+
+exists "$@"

@@ -207,21 +207,6 @@ function empty() {
   [ -z $REPLY/*(DN[1]) ]
 }
 
-# Open Sublime Text Projects
-function sp() {
-  subl --command 'close_project' '$1'
-  sleep 0.2
-  subl --project '/Users/fr1v/Library/Application Support/Sublime Text 3/Packages/User/ProjectManager/$1.sublime-project'
-}
-
-# base utility function
-function exists() {
-  test -x "$(command -v "$1")"
-}
-
-# Serves a directory via HTTP.
-alias http-serve='python -m SimpleHTTPServer'
-
 
 #
 # mkdcd
@@ -229,13 +214,13 @@ alias http-serve='python -m SimpleHTTPServer'
 
 # Makes a directory and changes to it.
 function mkdcd {
-  [[ -n "$1" ]] && mkdir -p "$1" && builtin cd "$1"
+    [[ -n "$1" ]] && mkdir -p "$1" && builtin cd "$1"
 }
 
 # CDLS
 # Changes to a directory and lists its contents.
 function cdls {
-  builtin cd "$argv[-1]" && ls "${(@)argv[1,-2]}"
+    builtin cd "$argv[-1]" && ls "${(@)argv[1,-2]}"
 }
 
 # pushdls
@@ -262,72 +247,4 @@ function find-exec {
 function psu {
   ps -U "${1:-$LOGNAME}" -o 'pid,%cpu,%mem,command' "${(@)argv[2,-1]}"
 }
-
-
-
-#Here's a bit of Korn shell that converts the symbolic permissions produced
-#by "ls -l" into octal, using only shell builtins.  How to create a script
-#combining this with an "ls -l" is left as an exercise...
-#
-#
-# Converted to Bash v2 syntax by Chet Ramey <chet@po.cwru.edu>
-#
-# usage: showperm modestring
-#
-# example: showperm '-rwsr-x--x'
-#
-
-function showperm() {
-  [ -z "$1" ] && {
-    echo "showperm: usage: showperm modestring" >&2
-    exit 2
-  }
-
-  tmode="$1"
-
-  typeset -i omode sbits
-  typeset pmode
-
-  # check for set-uid, etc. bits
-  sbits=0
-  case $tmode in
-  ???[sS]*)       (( sbits += 8#4000 )) ;; # set-uid
-  ??????[sSl]*)   (( sbits += 8#2000 )) ;; # set-gid or mand. lock
-  ?????????[tT]*) (( sbits += 8#1000 )) ;; # sticky
-  esac
-
-  omode=0
-  while :
-  do
-    tmode=${tmode#?}
-    case $tmode in
-    "")       break ;;
-    [-STl]*)  (( omode *= 2 )) ;;
-    [rwxst]*) (( omode = omode*2 + 1 )) ;;
-    *)    echo "$0: first letter of \"$tmode\" is unrecognized" >&2
-            (( omode *= 2 ))
-            ;;
-    esac
-  done
-
-  (( omode += sbits ))
-
-  printf "0%o\n" $omode
-}
-
-zmodload zsh/zpty
-
-function pty() {
-  zpty pty-${UID} ${1+$@}
-  if [[ ! -t 1 ]];then
-    setopt local_traps
-    trap '' INT
-  fi
-  zpty -r pty-${UID}
-  zpty -d pty-${UID}
-}
-
-function ptyless() {
-  pty $@ | less
-} 
 
