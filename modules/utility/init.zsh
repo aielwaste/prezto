@@ -75,34 +75,34 @@ alias cd..='cd ..'
 
 # LS
 if is-callable 'dircolors'; then
-  # GNU Core Utilities
-  alias l='ls --l --all --group-directories-first --dereference'
-  alias ls='ls --group-directories-first'
+    # GNU Core Utilities
+    alias l='ls --l --all --group-directories-first --dereference'
+    alias ls='ls --group-directories-first'
 
-  if zstyle -t ':prezto:module:utility:ls' color; then
-    if [[ -s "$HOME/.dir_colors" ]]; then
-      eval "$(dircolors --sh "$HOME/.dir_colors")"
+    if zstyle -t ':prezto:module:utility:ls' color; then
+        if [[ -s "$HOME/.dir_colors" ]]; then
+            eval "$(dircolors --sh "$HOME/.dir_colors")"
+        else
+            eval "$(dircolors --sh)"
+        fi
+
+        alias ls="${aliases[ls]:-ls} --color=auto"
     else
-      eval "$(dircolors --sh)"
+        alias ls="${aliases[ls]:-ls} -F"
     fi
-
-    alias ls="${aliases[ls]:-ls} --color=auto"
-  else
-    alias ls="${aliases[ls]:-ls} -F"
-  fi
 else
-  # BSD Core Utilities =====
-  if zstyle -t ':prezto:module:utility:ls' color; then
-    # Define colors for BSD ls.
-    export LSCOLORS='exfxcxdxbxGxDxabagacad'
+    # BSD Core Utilities =====
+    if zstyle -t ':prezto:module:utility:ls' color; then
+        # Define colors for BSD ls.
+        export LSCOLORS='exfxcxdxbxGxDxabagacad'
 
-    # Define colors for the completion system.
-    export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'
+        # Define colors for the completion system.
+        export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'
 
-    alias ls="${aliases[ls]:-ls} -G"
-  else
-    alias ls="${aliases[ls]:-ls} -F"
-  fi
+        alias ls="${aliases[ls]:-ls} -G"
+    else
+        alias ls="${aliases[ls]:-ls} -F"
+    fi
 fi
 
 alias l='ls -1A'         # Lists in one column, hidden files.
@@ -120,30 +120,30 @@ alias sl='ls'            # I often screw this up.
 # Grep
 #
 if zstyle -t ':prezto:module:utility:grep' color; then
-  export GREP_COLOR='37;45'           # BSD.
-  export GREP_COLORS="mt=$GREP_COLOR" # GNU.
+    export GREP_COLOR='37;45'           # BSD.
+    export GREP_COLORS="mt=$GREP_COLOR" # GNU.
 
-  alias grep="${aliases[grep]:-grep} --color=auto"
+    alias grep="${aliases[grep]:-grep} --color=auto"
 fi
 
 # Mac OS X Everywhere
 #
 if [[ "$OSTYPE" == darwin* ]]; then
-  alias o='open'
+    alias o='open'
 elif [[ "$OSTYPE" == cygwin* ]]; then
-  alias o='cygstart'
-  alias pbcopy='tee > /dev/clipboard'
-  alias pbpaste='cat /dev/clipboard'
+    alias o='cygstart'
+    alias pbcopy='tee > /dev/clipboard'
+    alias pbpaste='cat /dev/clipboard'
 else
-  alias o='xdg-open'
+    alias o='xdg-open'
 
-  if (( $+commands[xclip] )); then
-    alias pbcopy='xclip -selection clipboard -in'
-    alias pbpaste='xclip -selection clipboard -out'
-  elif (( $+commands[xsel] )); then
-    alias pbcopy='xsel --clipboard --input'
-    alias pbpaste='xsel --clipboard --output'
-  fi
+    if (( $+commands[xclip] )); then
+        alias pbcopy='xclip -selection clipboard -in'
+        alias pbpaste='xclip -selection clipboard -out'
+    elif (( $+commands[xsel] )); then
+        alias pbcopy='xsel --clipboard --input'
+        alias pbpaste='xsel --clipboard --output'
+    fi
 fi
 
 # System arch
@@ -155,9 +155,9 @@ alias pbp='pbpaste'
 # File Download
 #
 if (( $+commands[curl] )); then
-  alias get='curl --continue-at - --location --progress-bar --remote-name --remote-time'
+    alias get='curl --continue-at - --location --progress-bar --remote-name --remote-time'
 elif (( $+commands[wget] )); then
-  alias get='wget --continue --progress=bar --timestamping'
+    alias get='wget --continue --progress=bar --timestamping'
 fi
 
 # Resource Usage
@@ -166,15 +166,15 @@ alias df='df -kh'
 alias du='du -kh'
 
 if (( $+commands[htop] )); then
-  alias top=htop
+    alias top=htop
 else
-  if [[ "$OSTYPE" == (darwin*|*bsd*) ]]; then
-    alias topc='top -o cpu'
-    alias topm='top -o vsize'
-  else
-    alias topc='top -o %CPU'
-    alias topm='top -o %MEM'
-  fi
+    if [[ "$OSTYPE" == (darwin*|*bsd*) ]]; then
+        alias topc='top -o cpu'
+        alias topm='top -o vsize'
+    else
+        alias topc='top -o %CPU'
+        alias topm='top -o %MEM'
+    fi
 fi
 
 # PS
@@ -196,15 +196,15 @@ alias psr='ps aux | grep ruby'
 
 # pretty print path
 function path(){
-  old=$IFS
-  IFS=:
-  printf "%s\n" $PATH
-  IFS=$old
+    old=$IFS
+    IFS=:
+    printf "%s\n" $PATH
+    IFS=$old
 }
 
 # file empty directories
 function empty() {
-  [ -z $REPLY/*(DN[1]) ]
+    [ -z $REPLY/*(DN[1]) ]
 }
 
 
@@ -214,37 +214,37 @@ function empty() {
 
 # Makes a directory and changes to it.
 function mkdcd {
-    [[ -n "$1" ]] && mkdir -p "$1" && builtin cd "$1"
+        [[ -n "$1" ]] && mkdir -p "$1" && builtin cd "$1"
 }
 
 # CDLS
 # Changes to a directory and lists its contents.
 function cdls {
-    builtin cd "$argv[-1]" && ls "${(@)argv[1,-2]}"
+        builtin cd "$argv[-1]" && ls "${(@)argv[1,-2]}"
 }
 
 # pushdls
 function pushdls {
-  builtin pushd "$argv[-1]" && ls "${(@)argv[1,-2]}"
+    builtin pushd "$argv[-1]" && ls "${(@)argv[1,-2]}"
 }
 
 # popdls: Pops an entry off the directory stack and lists its contents.
 function popdls {
-  builtin popd "$argv[-1]" && ls "${(@)argv[1,-2]}"
+    builtin popd "$argv[-1]" && ls "${(@)argv[1,-2]}"
 }
 
 # slit: prints columns 1 2 3 ... n.
 function slit {
-  awk "{ print ${(j:,:):-\$${^@}} }"
+    awk "{ print ${(j:,:):-\$${^@}} }"
 }
 
 # find-exec: finds files and executes a command on them.
 function find-exec {
-  find . -type f -iname "*${1:-}*" -exec "${2:-file}" '{}' \;
+    find . -type f -iname "*${1:-}*" -exec "${2:-file}" '{}' \;
 }
 
 # PSU
 function psu {
-  ps -U "${1:-$LOGNAME}" -o 'pid,%cpu,%mem,command' "${(@)argv[2,-1]}"
+    ps -U "${1:-$LOGNAME}" -o 'pid,%cpu,%mem,command' "${(@)argv[2,-1]}"
 }
 

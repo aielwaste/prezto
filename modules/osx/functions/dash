@@ -1,0 +1,7 @@
+#!/usr/local/bin/zsh
+
+function dash() {
+    open "dash://$*"
+}
+
+dash "$@"

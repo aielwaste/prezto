@@ -1,0 +1,43 @@
+## Applications
+# alias acorn="open -a Acorn"
+# alias alpha="open -a ImageAlpha"
+# alias tp="open -a TaskPaper"
+# alias byword="open -a Byword"
+# alias xc="open -a Xcode"
+#
+## subp is a custom function for finding Sublime projects
+
+function _complete_app_alias()
+{
+    local cmd="${1##*/}"
+    local word=${COMP_WORDS[COMP_CWORD]}
+    local line=${COMP_LINE}
+    local patt
+
+    # Check to see what command is being executed.
+    case "$cmd" in
+    esp)
+        patt='!*.espresso-proj'
+        ;;
+    subp|sublp)
+        patt='!*.sublime-project'
+        ;;
+    xc)
+        patt='!*.xcodeproj'
+        ;;
+    tp)
+        patt='!*.taskpaper'
+        ;;
+    alpha)
+        patt='!*.png'
+        ;;
+    byword|mmdc)
+        patt='!*.md'
+        ;;
+    esac
+
+    COMPREPLY=($(compgen -f -X "$patt" -- "${word}"))
+}
+
+complete -o bashdefault -o dirnames -o filenames -o default -o nospace -F _complete_app_alias sublp subp esp xc tp alpha byword mmdc || \
+complete -o default -o dirnames -o filenames -o nospace -F _complete_app_alias sublp subp esp xc tp alpha byword mmdc
