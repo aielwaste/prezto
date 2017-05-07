@@ -1,3 +1,5 @@
+#!/usr/local/bin/zsh
+#
 # converts supplied archive to 7z 
 #
 # Andrew Bell <andrewbell8@gmail.com>
@@ -5,15 +7,15 @@
 #
 
 function cto7z() {
-  setopt LOCAL_OPTIONS EXTENDED_GLOB
+    setopt LOCAL_OPTIONS EXTENDED_GLOB
 
-  for f in "$@"
-  do
+    for f in "$@"
+    do
     local file_ext=${f:e}
     arepack -F.7z -O-m0=lzma2 -O-mx=9 -O-mfb=64 -O-md=32m -O-ms=on -q -e "$f"
     rm "${f:r}.${file_ext}"
-  done
-  unset LOCAL_OPTIONS EXTENDED_GLOB
+    done
+    unset LOCAL_OPTIONS EXTENDED_GLOB
 }
 
 cto7z "$@"

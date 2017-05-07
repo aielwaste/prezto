@@ -213,14 +213,14 @@ function empty() {
 #
 
 # Makes a directory and changes to it.
-function mkdcd {
-        [[ -n "$1" ]] && mkdir -p "$1" && builtin cd "$1"
+function mkdirc {
+    [[ -n "$1" ]] && mkdir -p "$1" && builtin cd "$1"
 }
 
 # CDLS
 # Changes to a directory and lists its contents.
 function cdls {
-        builtin cd "$argv[-1]" && ls "${(@)argv[1,-2]}"
+    builtin cd "$argv[-1]" && ls "${(@)argv[1,-2]}"
 }
 
 # pushdls

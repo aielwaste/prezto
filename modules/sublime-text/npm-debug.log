@@ -1,0 +1,533 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/fr1v/.nvm/versions/node/v0.12.9/bin/node',
+1 verbose cli   '/Users/fr1v/.nvm/versions/node/v0.12.9/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '--save-dev',
+1 verbose cli   'webpack-shell-plugin' ]
+2 info using npm@2.14.9
+3 info using node@v0.12.9
+4 verbose config Skipping project config: /Users/fr1v/.npmrc. (matches userconfig)
+5 verbose install initial load of /Users/fr1v/package.json
+6 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/acorn/package.json
+7 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/acorn-jsx/package.json
+8 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/ajv/package.json
+9 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/ajv-keywords/package.json
+10 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/ansi-escapes/package.json
+11 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/ansi-regex/package.json
+12 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/ansi-styles/package.json
+13 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/argparse/package.json
+14 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/array-find-index/package.json
+15 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/array-union/package.json
+16 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/array-uniq/package.json
+17 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/array.prototype.find/package.json
+18 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/arrify/package.json
+19 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/asn1/package.json
+20 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/assert-plus/package.json
+21 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/asynckit/package.json
+22 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/aws-sign2/package.json
+23 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/aws4/package.json
+24 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/babel-code-frame/package.json
+25 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/balanced-match/package.json
+26 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/bcrypt-pbkdf/package.json
+27 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/boom/package.json
+28 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/brace-expansion/package.json
+29 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/buffer-shims/package.json
+30 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/builtin-modules/package.json
+31 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/caller-path/package.json
+32 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/callsites/package.json
+33 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/camelcase/package.json
+34 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/camelcase-keys/package.json
+35 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/caseless/package.json
+36 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/chalk/package.json
+37 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/circular-json/package.json
+38 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/cli-cursor/package.json
+39 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/cli-width/package.json
+40 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/co/package.json
+41 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/code-point-at/package.json
+42 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/combined-stream/package.json
+43 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/concat-map/package.json
+44 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/concat-stream/package.json
+45 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/contains-path/package.json
+46 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/core-util-is/package.json
+47 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/cryptiles/package.json
+48 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/currently-unhandled/package.json
+49 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/d/package.json
+50 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/dashdash/package.json
+51 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/debug/package.json
+52 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/debug-log/package.json
+53 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/decamelize/package.json
+54 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/deep-extend/package.json
+55 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/deep-is/package.json
+56 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/define-properties/package.json
+57 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/deglob/package.json
+58 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/del/package.json
+59 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/delayed-stream/package.json
+60 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/doctrine/package.json
+61 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/ecc-jsbn/package.json
+62 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/electron/package.json
+63 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/electron-download/package.json
+64 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/error-ex/package.json
+65 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/es-abstract/package.json
+66 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/es-to-primitive/package.json
+67 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/es5-ext/package.json
+68 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/es6-iterator/package.json
+69 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/es6-map/package.json
+70 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/es6-promise/package.json
+71 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/es6-set/package.json
+72 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/es6-symbol/package.json
+73 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/es6-weak-map/package.json
+74 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/escape-string-regexp/package.json
+75 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/escope/package.json
+76 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/eslint/package.json
+77 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/eslint-config-happiness/package.json
+78 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/eslint-config-standard/package.json
+79 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/eslint-config-standard-jsx/package.json
+80 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/eslint-import-resolver-node/package.json
+81 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/eslint-module-utils/package.json
+82 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/eslint-plugin-import/package.json
+83 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/eslint-plugin-node/package.json
+84 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/eslint-plugin-promise/package.json
+85 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/eslint-plugin-react/package.json
+86 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/eslint-plugin-standard/package.json
+87 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/espree/package.json
+88 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/esprima/package.json
+89 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/esquery/package.json
+90 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/esrecurse/package.json
+91 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/estraverse/package.json
+92 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/esutils/package.json
+93 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/event-emitter/package.json
+94 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/exit-hook/package.json
+95 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/extend/package.json
+96 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/extract-zip/package.json
+97 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/extsprintf/package.json
+98 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/fast-levenshtein/package.json
+99 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/fd-slicer/package.json
+100 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/figures/package.json
+101 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/file-entry-cache/package.json
+102 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/find-root/package.json
+103 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/find-up/package.json
+104 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/flat-cache/package.json
+105 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/foreach/package.json
+106 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/forever-agent/package.json
+107 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/form-data/package.json
+108 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/fs-extra/package.json
+109 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/fs.realpath/package.json
+110 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/function-bind/package.json
+111 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/generate-function/package.json
+112 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/generate-object-property/package.json
+113 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/get-stdin/package.json
+114 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/getpass/package.json
+115 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/glob/package.json
+116 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/globals/package.json
+117 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/globby/package.json
+118 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/graceful-fs/package.json
+119 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/har-schema/package.json
+120 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/har-validator/package.json
+121 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/has/package.json
+122 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/has-ansi/package.json
+123 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/hawk/package.json
+124 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/hoek/package.json
+125 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/home-path/package.json
+126 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/hosted-git-info/package.json
+127 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/http-signature/package.json
+128 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/ignore/package.json
+129 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/imurmurhash/package.json
+130 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/indent-string/package.json
+131 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/inflight/package.json
+132 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/inherits/package.json
+133 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/ini/package.json
+134 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/inquirer/package.json
+135 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/interpret/package.json
+136 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/is-arrayish/package.json
+137 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/is-builtin-module/package.json
+138 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/is-callable/package.json
+139 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/is-date-object/package.json
+140 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/is-finite/package.json
+141 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/is-fullwidth-code-point/package.json
+142 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/is-my-json-valid/package.json
+143 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/is-path-cwd/package.json
+144 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/is-path-in-cwd/package.json
+145 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/is-path-inside/package.json
+146 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/is-property/package.json
+147 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/is-regex/package.json
+148 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/is-resolvable/package.json
+149 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/is-symbol/package.json
+150 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/is-typedarray/package.json
+151 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/is-utf8/package.json
+152 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/isarray/package.json
+153 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/isstream/package.json
+154 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/jodid25519/package.json
+155 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/js-tokens/package.json
+156 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/js-yaml/package.json
+157 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/jsbn/package.json
+158 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/json-schema/package.json
+159 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/json-stable-stringify/package.json
+160 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/json-stringify-safe/package.json
+161 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/jsonfile/package.json
+162 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/jsonify/package.json
+163 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/jsonpointer/package.json
+164 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/jsprim/package.json
+165 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/jsx-ast-utils/package.json
+166 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/klaw/package.json
+167 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/levn/package.json
+168 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/load-json-file/package.json
+169 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/locate-path/package.json
+170 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/lodash/package.json
+171 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/lodash.cond/package.json
+172 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/loud-rejection/package.json
+173 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/map-obj/package.json
+174 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/meow/package.json
+175 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/mime-db/package.json
+176 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/mime-types/package.json
+177 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/minimatch/package.json
+178 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/minimist/package.json
+179 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/mkdirp/package.json
+180 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/ms/package.json
+181 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/mute-stream/package.json
+182 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/natural-compare/package.json
+183 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/normalize-package-data/package.json
+184 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/nugget/package.json
+185 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/number-is-nan/package.json
+186 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/oauth-sign/package.json
+187 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/object-assign/package.json
+188 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/object-keys/package.json
+189 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/object.assign/package.json
+190 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/once/package.json
+191 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/onetime/package.json
+192 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/optionator/package.json
+193 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/os-homedir/package.json
+194 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/p-limit/package.json
+195 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/p-locate/package.json
+196 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/parse-json/package.json
+197 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/path-exists/package.json
+198 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/path-is-absolute/package.json
+199 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/path-is-inside/package.json
+200 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/path-parse/package.json
+201 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/path-type/package.json
+202 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/pend/package.json
+203 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/performance-now/package.json
+204 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/pify/package.json
+205 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/pinkie/package.json
+206 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/pinkie-promise/package.json
+207 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/pkg-conf/package.json
+208 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/pkg-config/package.json
+209 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/pkg-dir/package.json
+210 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/pkg-up/package.json
+211 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/pluralize/package.json
+212 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/prelude-ls/package.json
+213 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/pretty-bytes/package.json
+214 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/process-nextick-args/package.json
+215 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/progress/package.json
+216 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/progress-stream/package.json
+217 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/punycode/package.json
+218 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/qs/package.json
+219 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/rc/package.json
+220 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/read-pkg/package.json
+221 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/read-pkg-up/package.json
+222 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/readable-stream/package.json
+223 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/readline2/package.json
+224 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/rechoir/package.json
+225 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/redent/package.json
+226 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/repeating/package.json
+227 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/request/package.json
+228 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/require-uncached/package.json
+229 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/resolve/package.json
+230 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/resolve-from/package.json
+231 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/restore-cursor/package.json
+232 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/rimraf/package.json
+233 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/run-async/package.json
+234 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/run-parallel/package.json
+235 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/rx-lite/package.json
+236 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/safe-buffer/package.json
+237 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/semver/package.json
+238 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/shelljs/package.json
+239 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/signal-exit/package.json
+240 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/single-line-log/package.json
+241 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/slice-ansi/package.json
+242 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/sntp/package.json
+243 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/spdx-correct/package.json
+244 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/spdx-expression-parse/package.json
+245 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/spdx-license-ids/package.json
+246 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/speedometer/package.json
+247 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/sprintf-js/package.json
+248 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/sshpk/package.json
+249 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/standard/package.json
+250 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/standard-engine/package.json
+251 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/string-width/package.json
+252 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/string_decoder/package.json
+253 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/stringstream/package.json
+254 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/strip-ansi/package.json
+255 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/strip-bom/package.json
+256 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/strip-indent/package.json
+257 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/strip-json-comments/package.json
+258 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/sumchecker/package.json
+259 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/supports-color/package.json
+260 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/table/package.json
+261 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/text-table/package.json
+262 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/throttleit/package.json
+263 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/through/package.json
+264 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/through2/package.json
+265 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/tough-cookie/package.json
+266 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/trim-newlines/package.json
+267 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/tryit/package.json
+268 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/tunnel-agent/package.json
+269 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/tweetnacl/package.json
+270 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/type-check/package.json
+271 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/typedarray/package.json
+272 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/uniq/package.json
+273 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/user-home/package.json
+274 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/util-deprecate/package.json
+275 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/uuid/package.json
+276 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/validate-npm-package-license/package.json
+277 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/verror/package.json
+278 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/wordwrap/package.json
+279 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/wrappy/package.json
+280 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/write/package.json
+281 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/xtend/package.json
+282 verbose installManyTop reading scoped package data from /Users/fr1v/node_modules/yauzl/package.json
+283 info package.json bcrypt-pbkdf@1.0.1 No repository field.
+284 info package.json deep-is@0.1.3 license should be a valid SPDX license expression
+285 info package.json esutils@2.0.2 No license field.
+286 info package.json esquery@1.0.0 license should be a valid SPDX license expression
+287 info package.json extsprintf@1.0.2 No license field.
+288 info package.json has@1.0.1 No license field.
+289 info package.json function-bind@1.1.0 No license field.
+290 info package.json json-schema@0.2.3 No license field.
+291 info package.json jsonify@0.0.0 license should be a valid SPDX license expression
+292 info package.json nugget@2.0.1 license should be a valid SPDX license expression
+293 info package.json punycode@1.4.1 punycode is also the name of a node core module.
+294 info package.json prelude-ls@1.1.2 No license field.
+295 info package.json rechoir@0.6.2 No license field.
+296 info package.json progress@1.1.8 No license field.
+297 info package.json sntp@1.0.9 No license field.
+298 info package.json speedometer@0.1.4 No license field.
+299 info package.json string_decoder@0.10.31 string_decoder is also the name of a node core module.
+300 info package.json rx-lite@3.1.2 No license field.
+301 info package.json verror@1.3.6 No license field.
+302 info package.json xtend@2.1.2 No license field.
+303 verbose readDependencies loading dependencies from /Users/fr1v/package.json
+304 silly cache add args [ 'webpack-shell-plugin', null ]
+305 verbose cache add spec webpack-shell-plugin
+306 silly cache add parsed spec { raw: 'webpack-shell-plugin',
+306 silly cache add   scope: null,
+306 silly cache add   name: 'webpack-shell-plugin',
+306 silly cache add   rawSpec: '',
+306 silly cache add   spec: '*',
+306 silly cache add   type: 'range' }
+307 silly addNamed webpack-shell-plugin@*
+308 verbose addNamed "*" is a valid semver range for webpack-shell-plugin
+309 silly addNameRange { name: 'webpack-shell-plugin', range: '*', hasData: false }
+310 silly mapToRegistry name webpack-shell-plugin
+311 silly mapToRegistry using default registry
+312 silly mapToRegistry registry https://registry.npmjs.org/
+313 silly mapToRegistry uri https://registry.npmjs.org/webpack-shell-plugin
+314 verbose addNameRange registry:https://registry.npmjs.org/webpack-shell-plugin not in flight; fetching
+315 verbose request uri https://registry.npmjs.org/webpack-shell-plugin
+316 verbose request no auth needed
+317 info attempt registry request try #1 at 1:32:25 AM
+318 verbose request id 0a184e15669a1afe
+319 http request GET https://registry.npmjs.org/webpack-shell-plugin
+320 http 200 https://registry.npmjs.org/webpack-shell-plugin
+321 verbose headers { server: 'nginx/1.10.1',
+321 verbose headers   'content-type': 'application/json',
+321 verbose headers   'last-modified': 'Sat, 15 Apr 2017 21:06:32 GMT',
+321 verbose headers   etag: 'W/"58f28b58-8bd8"',
+321 verbose headers   'content-encoding': 'gzip',
+321 verbose headers   'cache-control': 'max-age=300',
+321 verbose headers   'content-length': '4990',
+321 verbose headers   'accept-ranges': 'bytes',
+321 verbose headers   date: 'Sat, 29 Apr 2017 05:32:25 GMT',
+321 verbose headers   via: '1.1 varnish',
+321 verbose headers   age: '0',
+321 verbose headers   connection: 'keep-alive',
+321 verbose headers   'x-served-by': 'cache-mia1321-MIA',
+321 verbose headers   'x-cache': 'MISS',
+321 verbose headers   'x-cache-hits': '0',
+321 verbose headers   'x-timer': 'S1493443946.643819,VS0,VE167',
+321 verbose headers   vary: 'Accept-Encoding' }
+322 silly get cb [ 200,
+322 silly get   { server: 'nginx/1.10.1',
+322 silly get     'content-type': 'application/json',
+322 silly get     'last-modified': 'Sat, 15 Apr 2017 21:06:32 GMT',
+322 silly get     etag: 'W/"58f28b58-8bd8"',
+322 silly get     'content-encoding': 'gzip',
+322 silly get     'cache-control': 'max-age=300',
+322 silly get     'content-length': '4990',
+322 silly get     'accept-ranges': 'bytes',
+322 silly get     date: 'Sat, 29 Apr 2017 05:32:25 GMT',
+322 silly get     via: '1.1 varnish',
+322 silly get     age: '0',
+322 silly get     connection: 'keep-alive',
+322 silly get     'x-served-by': 'cache-mia1321-MIA',
+322 silly get     'x-cache': 'MISS',
+322 silly get     'x-cache-hits': '0',
+322 silly get     'x-timer': 'S1493443946.643819,VS0,VE167',
+322 silly get     vary: 'Accept-Encoding' } ]
+323 verbose get saving webpack-shell-plugin to /Users/fr1v/.npm/registry.npmjs.org/webpack-shell-plugin/.cache.json
+324 silly addNameRange number 2 { name: 'webpack-shell-plugin', range: '*', hasData: true }
+325 silly addNameRange versions [ 'webpack-shell-plugin',
+325 silly addNameRange   [ '0.1.0',
+325 silly addNameRange     '0.2.1',
+325 silly addNameRange     '0.2.2',
+325 silly addNameRange     '0.2.3',
+325 silly addNameRange     '0.3.0',
+325 silly addNameRange     '0.3.1',
+325 silly addNameRange     '0.3.2',
+325 silly addNameRange     '0.3.3',
+325 silly addNameRange     '0.3.4',
+325 silly addNameRange     '0.3.5',
+325 silly addNameRange     '0.4.0',
+325 silly addNameRange     '0.4.1',
+325 silly addNameRange     '0.4.2',
+325 silly addNameRange     '0.4.3',
+325 silly addNameRange     '0.4.4',
+325 silly addNameRange     '0.4.5',
+325 silly addNameRange     '0.4.6',
+325 silly addNameRange     '0.4.7',
+325 silly addNameRange     '0.4.8',
+325 silly addNameRange     '0.4.9',
+325 silly addNameRange     '0.4.10',
+325 silly addNameRange     '0.5.0' ] ]
+326 silly addNamed webpack-shell-plugin@0.5.0
+327 verbose addNamed "0.5.0" is a plain semver version for webpack-shell-plugin
+328 silly mapToRegistry name webpack-shell-plugin
+329 silly mapToRegistry using default registry
+330 silly mapToRegistry registry https://registry.npmjs.org/
+331 silly mapToRegistry uri https://registry.npmjs.org/webpack-shell-plugin
+332 verbose addRemoteTarball https://registry.npmjs.org/webpack-shell-plugin/-/webpack-shell-plugin-0.5.0.tgz not in flight; adding
+333 verbose addRemoteTarball [ 'https://registry.npmjs.org/webpack-shell-plugin/-/webpack-shell-plugin-0.5.0.tgz',
+333 verbose addRemoteTarball   '29b8a1d80ddeae0ddb10e729667f728653c2c742' ]
+334 info retry fetch attempt 1 at 1:32:25 AM
+335 info attempt registry request try #1 at 1:32:25 AM
+336 http fetch GET https://registry.npmjs.org/webpack-shell-plugin/-/webpack-shell-plugin-0.5.0.tgz
+337 http fetch 200 https://registry.npmjs.org/webpack-shell-plugin/-/webpack-shell-plugin-0.5.0.tgz
+338 silly fetchAndShaCheck shasum 29b8a1d80ddeae0ddb10e729667f728653c2c742
+339 verbose addTmpTarball /var/folders/1m/_blpj3ls54sf9wqmq7g1psgw0000gn/T/npm-31870-504b953d/registry.npmjs.org/webpack-shell-plugin/-/webpack-shell-plugin-0.5.0.tgz not in flight; adding
+340 verbose addTmpTarball already have metadata; skipping unpack for webpack-shell-plugin@0.5.0
+341 silly cache afterAdd webpack-shell-plugin@0.5.0
+342 verbose afterAdd /Users/fr1v/.npm/webpack-shell-plugin/0.5.0/package/package.json not in flight; writing
+343 verbose afterAdd /Users/fr1v/.npm/webpack-shell-plugin/0.5.0/package/package.json written
+344 silly install resolved [ { name: 'webpack-shell-plugin',
+344 silly install resolved     version: '0.5.0',
+344 silly install resolved     description: 'Run shell commands before and after webpack builds',
+344 silly install resolved     main: 'lib/index.js',
+344 silly install resolved     scripts:
+344 silly install resolved      { test: 'webpack',
+344 silly install resolved        'test:dev': 'webpack-dev-server --progress',
+344 silly install resolved        build: 'rollup -c',
+344 silly install resolved        webpack: 'webpack --progress',
+344 silly install resolved        'webpack-dev-server': 'webpack-dev-server --progress',
+344 silly install resolved        lint: 'eslint src/webpack-shell-plugin.js' },
+344 silly install resolved     repository:
+344 silly install resolved      { type: 'git',
+344 silly install resolved        url: 'git+https://github.com/1337programming/webpack-shell-plugin.git' },
+344 silly install resolved     keywords:
+344 silly install resolved      [ 'webpack',
+344 silly install resolved        'shell',
+344 silly install resolved        'plugin',
+344 silly install resolved        'shell',
+344 silly install resolved        'serve',
+344 silly install resolved        'hmr',
+344 silly install resolved        'browser',
+344 silly install resolved        'script',
+344 silly install resolved        'opie',
+344 silly install resolved        'manion',
+344 silly install resolved        '1337' ],
+344 silly install resolved     license: 'MIT',
+344 silly install resolved     bugs: { url: 'https://github.com/1337programming/webpack-shell-plugin/issues' },
+344 silly install resolved     homepage: 'https://github.com/1337programming/webpack-shell-plugin',
+344 silly install resolved     devDependencies:
+344 silly install resolved      { 'babel-core': '^6.7.6',
+344 silly install resolved        'babel-preset-es2015-rollup': '^1.1.1',
+344 silly install resolved        'css-loader': '^0.23.1',
+344 silly install resolved        eslint: '^2.7.0',
+344 silly install resolved        rollup: '^0.25.8',
+344 silly install resolved        'rollup-plugin-babel': '^2.4.0',
+344 silly install resolved        'style-loader': '^0.13.1',
+344 silly install resolved        webpack: '^1.13.1' },
+344 silly install resolved     gitHead: '3ddc07bc598028a92e084b78410320a5be428886',
+344 silly install resolved     _id: 'webpack-shell-plugin@0.5.0',
+344 silly install resolved     _shasum: '29b8a1d80ddeae0ddb10e729667f728653c2c742',
+344 silly install resolved     _from: 'webpack-shell-plugin@*',
+344 silly install resolved     _npmVersion: '3.10.3',
+344 silly install resolved     _nodeVersion: '6.7.0',
+344 silly install resolved     _npmUser: { name: 'opiepj', email: 'opiepj@plu.edu' },
+344 silly install resolved     dist:
+344 silly install resolved      { shasum: '29b8a1d80ddeae0ddb10e729667f728653c2c742',
+344 silly install resolved        tarball: 'https://registry.npmjs.org/webpack-shell-plugin/-/webpack-shell-plugin-0.5.0.tgz' },
+344 silly install resolved     maintainers: [ [Object] ],
+344 silly install resolved     _npmOperationalInternal:
+344 silly install resolved      { host: 'packages-12-west.internal.npmjs.com',
+344 silly install resolved        tmp: 'tmp/webpack-shell-plugin-0.5.0.tgz_1481664327646_0.3355521596968174' },
+344 silly install resolved     directories: {},
+344 silly install resolved     _resolved: 'https://registry.npmjs.org/webpack-shell-plugin/-/webpack-shell-plugin-0.5.0.tgz' } ]
+345 info install webpack-shell-plugin@0.5.0 into /Users/fr1v
+346 info installOne webpack-shell-plugin@0.5.0
+347 verbose installOne of webpack-shell-plugin to /Users/fr1v not in flight; installing
+348 verbose lock using /Users/fr1v/.npm/_locks/webpack-shell-plugin-0ab1adc602ff5a82.lock for /Users/fr1v/node_modules/webpack-shell-plugin
+349 silly install write writing webpack-shell-plugin 0.5.0 to /Users/fr1v/node_modules/webpack-shell-plugin
+350 verbose unbuild node_modules/webpack-shell-plugin
+351 silly gentlyRm /Users/fr1v/node_modules/webpack-shell-plugin is being purged from base /Users/fr1v
+352 verbose gentlyRm don't care about contents; nuking /Users/fr1v/node_modules/webpack-shell-plugin
+353 verbose tar unpack /Users/fr1v/.npm/webpack-shell-plugin/0.5.0/package.tgz
+354 verbose tar unpacking to /Users/fr1v/node_modules/webpack-shell-plugin
+355 silly gentlyRm /Users/fr1v/node_modules/webpack-shell-plugin is being purged
+356 verbose gentlyRm don't care about contents; nuking /Users/fr1v/node_modules/webpack-shell-plugin
+357 silly gunzTarPerm modes [ '755', '644' ]
+358 silly gunzTarPerm extractEntry package.json
+359 silly gunzTarPerm extractEntry .npmignore
+360 silly gunzTarPerm extractEntry README.md
+361 silly gunzTarPerm extractEntry LICENSE
+362 silly gunzTarPerm extractEntry webpack.config.js
+363 silly gunzTarPerm extractEntry test.js
+364 silly gunzTarPerm extractEntry rollup.config.js
+365 silly gunzTarPerm extractEntry .babelrc
+366 silly gunzTarPerm extractEntry .eslintrc.json
+367 silly gunzTarPerm extractEntry src/webpack-shell-plugin.js
+368 silly gunzTarPerm extractEntry test/content.js
+369 silly gunzTarPerm extractEntry test/entry.js
+370 silly gunzTarPerm extractEntry test/index.html
+371 silly gunzTarPerm extractEntry test/style.css
+372 silly gunzTarPerm extractEntry lib/index.js
+373 verbose write writing to /Users/fr1v/node_modules/webpack-shell-plugin/package.json
+374 info preinstall webpack-shell-plugin@0.5.0
+375 verbose readDependencies loading dependencies from /Users/fr1v/node_modules/webpack-shell-plugin/package.json
+376 verbose readDependencies loading dependencies from /Users/fr1v/node_modules/webpack-shell-plugin/package.json
+377 silly install resolved []
+378 verbose about to build /Users/fr1v/node_modules/webpack-shell-plugin
+379 info build /Users/fr1v/node_modules/webpack-shell-plugin
+380 info linkStuff webpack-shell-plugin@0.5.0
+381 silly linkStuff webpack-shell-plugin@0.5.0 has /Users/fr1v/node_modules as its parent node_modules
+382 verbose linkBins webpack-shell-plugin@0.5.0
+383 verbose linkMans webpack-shell-plugin@0.5.0
+384 verbose rebuildBundles webpack-shell-plugin@0.5.0
+385 info install webpack-shell-plugin@0.5.0
+386 info postinstall webpack-shell-plugin@0.5.0
+387 verbose unlock done using /Users/fr1v/.npm/_locks/webpack-shell-plugin-0ab1adc602ff5a82.lock for /Users/fr1v/node_modules/webpack-shell-plugin
+388 verbose validateInstall loading /Users/fr1v/package.json for validation
+389 verbose stack Error: The package eslint@3.19.0 does not satisfy its siblings' peerDependencies requirements!
+389 verbose stack     at /Users/fr1v/.nvm/versions/node/v0.12.9/lib/node_modules/npm/lib/install.js:125:32
+389 verbose stack     at /Users/fr1v/.nvm/versions/node/v0.12.9/lib/node_modules/npm/lib/install.js:268:7
+389 verbose stack     at /Users/fr1v/.nvm/versions/node/v0.12.9/lib/node_modules/npm/node_modules/read-installed/read-installed.js:142:5
+389 verbose stack     at /Users/fr1v/.nvm/versions/node/v0.12.9/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+389 verbose stack     at cb (/Users/fr1v/.nvm/versions/node/v0.12.9/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+389 verbose stack     at /Users/fr1v/.nvm/versions/node/v0.12.9/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+389 verbose stack     at cb (/Users/fr1v/.nvm/versions/node/v0.12.9/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+389 verbose stack     at /Users/fr1v/.nvm/versions/node/v0.12.9/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+389 verbose stack     at asyncMap (/Users/fr1v/.nvm/versions/node/v0.12.9/lib/node_modules/npm/node_modules/slide/lib/async-map.js:27:18)
+389 verbose stack     at next (/Users/fr1v/.nvm/versions/node/v0.12.9/lib/node_modules/npm/node_modules/read-installed/read-installed.js:234:5)
+390 verbose cwd /Users/fr1v/.dotfiles/prezto/modules/sublime-text
+391 error Darwin 16.5.0
+392 error argv "/Users/fr1v/.nvm/versions/node/v0.12.9/bin/node" "/Users/fr1v/.nvm/versions/node/v0.12.9/bin/npm" "install" "--save-dev" "webpack-shell-plugin"
+393 error node v0.12.9
+394 error npm  v2.14.9
+395 error code EPEERINVALID
+396 error peerinvalid The package eslint@3.19.0 does not satisfy its siblings' peerDependencies requirements!
+396 error peerinvalid Peer eslint-config-happiness@5.3.1 wants eslint@^2.0.0-rc.0
+396 error peerinvalid Peer eslint-config-standard@10.2.1 wants eslint@>=3.19.0
+396 error peerinvalid Peer eslint-config-standard-jsx@4.0.1 wants eslint@>=3.19.0
+396 error peerinvalid Peer eslint-plugin-import@2.2.0 wants eslint@2.x - 3.x
+396 error peerinvalid Peer eslint-plugin-node@4.2.2 wants eslint@>=3.1.0
+396 error peerinvalid Peer eslint-plugin-react@6.10.3 wants eslint@^2.0.0 || ^3.0.0
+396 error peerinvalid Peer eslint-plugin-standard@3.0.1 wants eslint@>=3.19.0
+397 verbose exit [ 1, true ]

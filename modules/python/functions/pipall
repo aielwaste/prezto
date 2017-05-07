@@ -1,0 +1,23 @@
+#!/usr/local/bin/zsh
+
+function pipall() {
+
+    for pip_version in "$HOME"/.pyenv/shims/***/pip*; do
+
+    done
+
+    revolver start 'Installing $1 to all available versions of python...'
+    revolver update "pip3.7 installing $1..."
+    pip3.7 --log "$HOME/Library/Logs/Python/pip/pip_install_log.log" -v install $1
+    revolver update "pip3.6 installing $1..."
+    pip3.6 --log "$HOME/Library/Logs/Python/pip/pip_install_log.log" -v install $1
+    revolver update "pip3.5 installing $1..."
+    pip3.5 --log "$HOME/Library/Logs/Python/pip/pip_install_log.log" -v install $1
+    revolver update "pip3.3 installing $1..."
+    pip3.3 --log "$HOME/Library/Logs/Python/pip/pip_install_log.log" -v install $1
+    revolver update "pip2.7 installing $1..."
+    pip2.7 --log "$HOME/Library/Logs/Python/pip/pip_install_log.log" -v install $1
+    revolver stop
+}
+
+pipall "$@"

@@ -12,6 +12,6 @@ tdate = $(date +%y.%m.%d)
 cat <<EOF logout.txt
 
 Logging off Fr1volous
-  -- ajb $tdate
+    -- ajb $tdate
 EOF
 

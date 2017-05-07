@@ -6,30 +6,13 @@
 #   Andrew Bell <andrewbell8@gmail.com>
 #
 
-#
-# Powerlevel9k
-#
-# {{
-    POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir vcs)
-    POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode root_indicator status)
-    POWERLEVEL9K_MODE="awesome-patched"
-    POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="↱"
-    POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="↳ "
-    POWERLEVEL9K_OS_ICON_BACKGROUND="black"
-    POWERLEVEL9K_OS_ICON_FOREGROUND="249"
-    POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-    POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-    POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=$'\uE0B3'
-    POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
-    ZSH_THEME="powerlevel9k/powerlevel9k" #}}
-
 
 #
 # user bin
 #
 # {{
     if [[ -d "~/Dropbox/bin" ]]; then
-        rm -rfv "${ZDOTDIR:-$HOME}"/bin && ln -sdv ~/Dropbox/bin "${ZDOTDIR:-$HOME}"/bin
+    rm -rfv "${ZDOTDIR:-$HOME}"/bin && ln -sdv ~/Dropbox/bin "${ZDOTDIR:-$HOME}"/bin
     fi # }}
 
 
@@ -38,60 +21,60 @@
 #
 # {{
     if [[ $OSTYPE == *darwin* ]]; then
-        # Ensure path arrays do not contain duplicates.
-        typeset -gU cdpath dfpath mailpath path
+    # Ensure path arrays do not contain duplicates.
+    typeset -gU cdpath dfpath mailpath path
 
-        if [[ -f "$HOME"/.secrets ]]; then
+    if [[ -f "$HOME"/.secrets ]]; then
         source "$HOME"/.secrets
+    fi
+
+    #
+    # fpath
+    #
+    # {{
+        path=(
+        "${ZDOTDIR:-$HOME}"/bin
+        /usr/local/{bin,sbin}
+        $path
+        )
+    # }}
+
+    export BROWSER='open'
+
+    #
+    # homebrew
+    #
+    # {{
+        if [[ -z $(which brew) ]]; then
+        function install_homebrew() {
+            ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        }
+
+        install_homebrew
         fi
 
-        #
-        # fpath
-        #
-        # {{
-            path=(
-                "${ZDOTDIR:-$HOME}"/bin
-                /usr/local/{bin,sbin}
-                $path
-            )
-        # }}
+        export HOMEBREW_GITHUB_API_TOKEN="$MY_HOMEBREW_GITHUB_API_TOKEN"
+        export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+        export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:/usr/local/share/man:$MANPATH"
+    # }}
 
-        export BROWSER='open'
+    #
+    # Java
+    #
+    # {{
 
-        #
-        # homebrew
-        #
-        # {{
-            if [[ -z $(which brew) ]]; then
-                function install_homebrew() {
-                  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-                }
+        JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
+        CLASSPATH=".:$HOME/Library/Java/junit.jar:$CLASSPATH"
+        export JAVA_HOME JAVA_OPTS CLASSPATH
+    # }}
 
-                install_homebrew
-            fi
-
-            export HOMEBREW_GITHUB_API_TOKEN="$MY_HOMEBREW_GITHUB_API_TOKEN"
-            export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
-            export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:/usr/local/share/man:$MANPATH"
-        # }}
-
-        #
-        # Java
-        #
-        # {{
-
-            JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
-            CLASSPATH=".:$HOME/Library/Java/junit.jar:$CLASSPATH"
-            export JAVA_HOME JAVA_OPTS CLASSPATH
-        # }}
-
-        #
-        # go
-        #
-        # {{
-            export GOROOT=$HOME/.go
-            export PATH=$PATH:/usr/local/opt/go/libexec/bin
-        # }}
+    #
+    # go
+    #
+    # {{
+        export GOROOT=$HOME/.go
+        export PATH=$PATH:/usr/local/opt/go/libexec/bin
+    # }}
 
 
 #
@@ -99,22 +82,21 @@
 #
 # {{
     elif [[ $OSTYPE == *linux* ]] && [[ $(uname -r) == *ARCH* || $(uname -r) == *MANJARO* ]] ; then
-        # Ensure path arrays do not contain duplicates.
-        typeset -gU cdpath dfpath mailpath path
-        
-        export BROWSER='xdg-open'
+    # Ensure path arrays do not contain duplicates.
+    typeset -gU cdpath dfpath mailpath path
 
-        #
-        # fpath
-        #
-        # {{
+    export BROWSER='xdg-open'
 
-            path=(
-                "${ZDOTDIR:-$HOME}"/bin
-                /usr/{bin,sbin}
-                $path
-            )
-        # }}
+    #
+    # fpath
+    #
+    # {{
+        path=(
+        "${ZDOTDIR:-$HOME}"/bin
+        /usr/{bin,sbin}
+        $path
+        )
+    # }}
     fi
 # }}
 
@@ -152,20 +134,20 @@
 #
 # {{
     if [[ -d "$HOME/.rbenv" ]]; then
-      export PROJECT_HOME="${ZDOTDIR:-$HOME}"/code
-      export RBENV_ROOT="${ZDOTDIR:-$HOME}"/.rbenv
-      export RBENV_DIR="$PWD"
-      export PATH="$RBENV_ROOT/bin:$PATH"
+    export PROJECT_HOME="${ZDOTDIR:-$HOME}"/code
+    export RBENV_ROOT="${ZDOTDIR:-$HOME}"/.rbenv
+    export RBENV_DIR="$PWD"
+    export PATH="$RBENV_ROOT/bin:$PATH"
 
-      # rbenv init
-      if which rbenv > /dev/null; then
+    # rbenv init
+    if which rbenv > /dev/null; then
         eval "$(rbenv init -)"
-      fi
+    fi
 
-      # rbenv completions
-      if [[ -f "$HOME/.rbenv/completions/rbenv.zsh" ]]; then
+    # rbenv completions
+    if [[ -f "$HOME/.rbenv/completions/rbenv.zsh" ]]; then
         source "$HOME/.rbenv/completions/rbenv.zsh"
-      fi
+    fi
     fi # }}
 
 
@@ -174,19 +156,19 @@
 #
 # {{
     if [[ -d "$HOME/.pyenv" ]]; then
-      export PYENV_ROOT="${ZDOTDIR:-$HOME}/.pyenv"
-      export PYENV_DIR="$PWD"
-      export PATH="$PYENV_ROOT/bin:$PATH"
+    export PYENV_ROOT="${ZDOTDIR:-$HOME}/.pyenv"
+    export PYENV_DIR="$PWD"
+    export PATH="$PYENV_ROOT/bin:$PATH"
 
-      # pyenv init
-      if which pyenv > /dev/null; then
+    # pyenv init
+    if which pyenv > /dev/null; then
         eval "$(pyenv init -)"
-      fi
+    fi
 
-      # pyenv completions
-      if [[ -f "$HOME/.pyenv/completions/pyenv.zsh" ]]; then
+    # pyenv completions
+    if [[ -f "$HOME/.pyenv/completions/pyenv.zsh" ]]; then
         source "$HOME/.pyenv/completions/pyenv.zsh"
-      fi
+    fi
     fi # }}
 
 
@@ -195,12 +177,22 @@
 #
 # {{
     if which pyenv-virtualenv-init > /dev/null; then
-      eval "$(pyenv virtualenv-init -)"
+    eval "$(pyenv virtualenv-init -)"
     fi
 
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1
     export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages' # }}
 
+
+#
+# nvm
+#
+# {{
+
+    export NVM_DIR="${HOME}/.nvm"
+    if [[ -s "$NVM_DIR"/nvm.sh ]]; then
+    source "$NVM_DIR"/nvm.sh
+    fi #}}
 
 #
 # Rust
@@ -209,6 +201,16 @@
     export RUST_SRC_PATH="$HOME/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/x86_64-apple-darwin/lib/rustlib/src/rust/src"
     export PATH="$HOME/.cargo/bin:$PATH" # }}
 
+
+#
+# Revolver Completion
+#
+# {{
+
+    if [[ -f "$HOME"/.zprezto/modules/Revolver/revolver.zsh-completion ]]; then
+    source "$HOME"/.zprezto/modules/Revolver/revolver.zsh-completion
+    fi
+# }}
 
 #
 # Less
@@ -222,7 +224,7 @@
     # Set the Less input preprocessor.
     # Try both `lesspipe` and `lesspipe.sh` as either might exist on a system.
     if (( $#commands[(i)lesspipe(|.sh)] )); then
-        export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
+    export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
     fi # }}
 
 
@@ -231,18 +233,8 @@
 #
 # {{
     if [[ ! -d "$TMPDIR" ]]; then
-        export TMPDIR="/tmp/$LOGNAME"
-        mkdir -p -m 700 "$TMPDIR"
+    export TMPDIR="/tmp/$LOGNAME"
+    mkdir -p -m 700 "$TMPDIR"
     fi
 
-    TMPPREFIX="${TMPDIR%/}/zsh" # }}
-
-# Setting PATH for Python 3.5
-# The orginal version is saved in .zprofile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
-export PATH
-
-# Setting PATH for Python 3.6
-# The original version is saved in .zprofile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
-export PATH
+    TMPPREFIX="${TMPDIR%/}/zsh" # }}s
