@@ -24,6 +24,11 @@ alias cdf='cd "$(pfd)"'
 # Pushes directory to the current Finder directory.
 alias pushdf='pushd "$(pfd)"'
 
+
+# Aliases to toggle notification center on MacOS Sierra
+alias disableNotificationCenter="launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist && killall NotificationCenter"
+alias enableNotificationCenter="launchctl load -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist && /System/Library/CoreServices/NotificationCenter.app"
+
 #
 # Finder
 #
