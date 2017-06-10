@@ -10,17 +10,17 @@
 #
 # user bin
 #
-# {{
-    if [[ -d "~/Dropbox/bin" ]]; then
+
+if [[ -d "~/Dropbox/bin" ]]; then
     rm -rfv "${ZDOTDIR:-$HOME}"/bin && ln -sdv ~/Dropbox/bin "${ZDOTDIR:-$HOME}"/bin
-    fi # }}
+fi
 
 
 #
 # macos path setup
 #
-# {{
-    if [[ $OSTYPE == *darwin* ]]; then
+
+if [[ $OSTYPE == *darwin* ]]; then
     # Ensure path arrays do not contain duplicates.
     typeset -gU cdpath dfpath mailpath path
 
@@ -31,109 +31,152 @@
     #
     # fpath
     #
-    # {{
-        path=(
+
+    path=(
         "${ZDOTDIR:-$HOME}"/bin
         /usr/local/{bin,sbin}
         $path
-        )
-    # }}
+    )
 
     export BROWSER='open'
 
     #
     # homebrew
     #
-    # {{
-        if [[ -z $(which brew) ]]; then
+
+    if [[ -z $(which brew) ]]; then
         function install_homebrew() {
             ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
         }
 
         install_homebrew
-        fi
+    fi
 
-        export HOMEBREW_GITHUB_API_TOKEN="$MY_HOMEBREW_GITHUB_API_TOKEN"
-        export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
-        export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:/usr/local/share/man:$MANPATH"
-    # }}
+    export HOMEBREW_GITHUB_API_TOKEN="$MY_HOMEBREW_GITHUB_API_TOKEN"
+    export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+    export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:/usr/local/share/man:$MANPATH"
 
     #
     # Java
     #
-    # {{
 
-        JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
-        CLASSPATH=".:$HOME/Library/Java/junit.jar:$CLASSPATH"
-        export JAVA_HOME JAVA_OPTS CLASSPATH
-    # }}
+    JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
+    CLASSPATH=".:$HOME/Library/Java/junit.jar:$CLASSPATH"
+    export JAVA_HOME JAVA_OPTS CLASSPATH
+
 
     #
     # go
     #
-    # {{
-        export GOROOT=$HOME/.go
-        export PATH=$PATH:/usr/local/opt/go/libexec/bin
-    # }}
+
+    export GOPATH="$HOME"/.go
+    export GOBIN="$GOPATH"/bin
+    export PATH=$PATH:/usr/local/opt/go/libexec/bin
+
+
+    #
+    # nvm
+    #
+
+    export NVM_DIR="$HOME"/.nvm
+    if [[ -s "$NVM_DIR"/nvm.sh ]]; then
+        source "$NVM_DIR"/nvm.sh
+    fi
 
 
 #
 # linux path setup
 #
-# {{
-    elif [[ $OSTYPE == *linux* ]] && [[ $(uname -r) == *ARCH* || $(uname -r) == *MANJARO* ]] ; then
+
+elif [[ $OSTYPE == *linux* ]]; then
+
     # Ensure path arrays do not contain duplicates.
     typeset -gU cdpath dfpath mailpath path
 
     export BROWSER='xdg-open'
 
+
+    #
+    # linuxbrew
+    #
+
+    PATH="$HOME/.linuxbrew/bin:$PATH"
+    export PATH="$HOME/.linuxbrew/bin:$PATH"
+    export MANPATH="$(brew --prefix)/share/man:$MANPATH"
+    export INFOPATH="$(brew --prefix)/share/info:$INFOPATH"
+    # export HOMEBREW_BUILD_FROM_SOURCE=1
+
     #
     # fpath
     #
-    # {{
-        path=(
+
+    path=(
         "${ZDOTDIR:-$HOME}"/bin
         /usr/{bin,sbin}
         $path
-        )
-    # }}
+    )
+
+
+    #
+    # go
+    #
+
+    export GOPATH="$HOME"/.go
+    export GOBIN="$GOPATH"/bin
+    export PATH=$PATH:/usr/opt/go/libexec/bin
+
+
+    #
+    # nvm
+    #
+
+    export NVM_DIR="$HOME/.nvm"
+
+    if [[ -s "$HOME/.linuxbrew/opt/nvm/nvm.sh" ]]; then
+        source "$HOME/.linuxbrew/opt/nvm/nvm.sh"
     fi
-# }}
+
+    # nvm completion
+    if [[ -s "$HOME/.linuxbrew/etc/bash_completion.d/nvm" ]]; then
+        source "$HOME/.linuxbrew/etc/bash_completion.d/nvm"
+    fi
+fi
 
 
 #
 # Gnupg
 #
-# {{
-    GPG_TTY=$(tty)
-    export GPG_TTY
-    export MYGPGKEY="$MY_GPG_KEY"
-    export QT_AUTO_SCREEN_SCALE_FACTOR=0 # }}
+
+GPG_TTY=$(tty)
+export GPG_TTY
+export MYGPGKEY="$MY_GPG_KEY"
+export QT_AUTO_SCREEN_SCALE_FACTOR=0
 
 
 #
 # Editors
 #
-# {{
-    export PAGER=less
-    export EDITOR='subl -n -w'
-    export VISUAL=$EDITOR
-    export GIT_EDITOR=$VISUAL
-    export SVN_EDITOR=$VISUAL
-    export HG_EDITOR=$VISUAL
-    export HOMEBREW_EDITOR=$VISUAL
-    export ___FULLUSERNAME___="Andrew Bell"
-    export ___ORGANIZATIONNAME___="Fr1v"
-    export SNIPPET_AUTHOR="Andrew Bell"
-    export LANG=en_US.UTF-8
-    umask 022 # }}
+
+export PAGER=less
+export EDITOR='subl -n -w'
+export VISUAL=$EDITOR
+export GIT_EDITOR=$VISUAL
+export SVN_EDITOR=$VISUAL
+export HG_EDITOR=$VISUAL
+export HOMEBREW_EDITOR=$VISUAL
+export ___FULLUSERNAME___="Andrew Bell"
+export ___ORGANIZATIONNAME___="Fr1v"
+export SNIPPET_AUTHOR="Andrew Bell"
+export LANG=en_US.UTF-8
+umask 022
 
 
 #
 # rbenv
 #
-# {{
-    if [[ -d "$HOME/.rbenv" ]]; then
+#
+
+if [[ -d "$HOME/.rbenv" ]]; then
     export PROJECT_HOME="${ZDOTDIR:-$HOME}"/code
     export RBENV_ROOT="${ZDOTDIR:-$HOME}"/.rbenv
     export RBENV_DIR="$PWD"
@@ -148,14 +191,14 @@
     if [[ -f "$HOME/.rbenv/completions/rbenv.zsh" ]]; then
         source "$HOME/.rbenv/completions/rbenv.zsh"
     fi
-    fi # }}
+fi
 
 
 #
 # pyenv
 #
-# {{
-    if [[ -d "$HOME/.pyenv" ]]; then
+
+if [[ -d "$HOME/.pyenv" ]]; then
     export PYENV_ROOT="${ZDOTDIR:-$HOME}/.pyenv"
     export PYENV_DIR="$PWD"
     export PATH="$PYENV_ROOT/bin:$PATH"
@@ -169,72 +212,60 @@
     if [[ -f "$HOME/.pyenv/completions/pyenv.zsh" ]]; then
         source "$HOME/.pyenv/completions/pyenv.zsh"
     fi
-    fi # }}
+fi
 
 
 #
 # pyenv-virtualenv
 #
-# {{
-    if which pyenv-virtualenv-init > /dev/null; then
+
+if which pyenv-virtualenv-init > /dev/null; then
     eval "$(pyenv virtualenv-init -)"
-    fi
+fi
 
-    export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-    export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages' # }}
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 
-
-#
-# nvm
-#
-# {{
-
-    export NVM_DIR="${HOME}/.nvm"
-    if [[ -s "$NVM_DIR"/nvm.sh ]]; then
-    source "$NVM_DIR"/nvm.sh
-    fi #}}
 
 #
 # Rust
 #
-# {{
-    export RUST_SRC_PATH="$HOME/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/x86_64-apple-darwin/lib/rustlib/src/rust/src"
-    export PATH="$HOME/.cargo/bin:$PATH" # }}
+
+export RUST_SRC_PATH="$HOME/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/x86_64-apple-darwin/lib/rustlib/src/rust/src"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 
 #
 # Revolver Completion
 #
-# {{
 
-    if [[ -f "$HOME"/.zprezto/modules/Revolver/revolver.zsh-completion ]]; then
+if [[ -f "$HOME"/.zprezto/modules/Revolver/revolver.zsh-completion ]]; then
     source "$HOME"/.zprezto/modules/Revolver/revolver.zsh-completion
-    fi
-# }}
+fi
 
 #
 # Less
 #
-# {{
-    # Set the default Less options.
-    # Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
-    # Remove -X and -F (exit if the content fits on one screen) to enable it.
-    export LESS='--tabs=4 --no-init --LONG-PROMPT --ignore-case --quit-if-one-screen --RAW-CONTROL-CHARS'
 
-    # Set the Less input preprocessor.
-    # Try both `lesspipe` and `lesspipe.sh` as either might exist on a system.
-    if (( $#commands[(i)lesspipe(|.sh)] )); then
+# Set the default Less options.
+# Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
+# Remove -X and -F (exit if the content fits on one screen) to enable it.
+export LESS='--tabs=4 --no-init --LONG-PROMPT --ignore-case --quit-if-one-screen --RAW-CONTROL-CHARS'
+
+# Set the Less input preprocessor.
+# Try both `lesspipe` and `lesspipe.sh` as either might exist on a system.
+if (( $#commands[(i)lesspipe(|.sh)] )); then
     export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
-    fi # }}
+fi
 
 
 #
 # Temporary Files
 #
-# {{
-    if [[ ! -d "$TMPDIR" ]]; then
+
+if [[ ! -d "$TMPDIR" ]]; then
     export TMPDIR="/tmp/$LOGNAME"
     mkdir -p -m 700 "$TMPDIR"
-    fi
+fi
 
-    TMPPREFIX="${TMPDIR%/}/zsh" # }}s
+TMPPREFIX="${TMPDIR%/}/zsh"
