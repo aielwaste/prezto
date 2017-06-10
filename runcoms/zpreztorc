@@ -27,47 +27,47 @@ zstyle ':prezto:load' zfunction 'zargs' 'zmv'
 # Set the Prezto modules to load (browse modules).
 # The order matters.
 if [[ $OSTYPE == *darwin* ]]; then
-  zstyle ':prezto:load' pmodule \
-    'environment' \
-    'terminal' \
-    'git' \
-    'autosuggestions' \
-    'editor' \
-    'homebrew' \
-    'history' \
-    'directory' \
-    'spectrum' \
-    'k' \
-    'command-not-found' \
-    'utility' \
-    'completion' \
-    'fasd' \
-    'archive' \
-    'python' \
-    'osx' \
-    'history-substring-search' \
-    'syntax-highlighting' \
-    'prompt'
-elif [[ $OSTYPE == *linux* ]] && [[ $(uname -r) == *ARCH* || *MANJARO* ]] ; then
-  zstyle ':prezto:load' pmodule \
-    'environment' \
-    'terminal' \
-    'git' \
-    'autosuggestions' \
-    'editor' \
-    'history' \
-    'directory' \
-    'spectrum' \
-    'k' \
-    'command-not-found' \
-    'utility' \
-    'completion' \
-    'fasd' \
-    'python' \
-    'dpkg' \
-    'history-substring-search' \
-    'syntax-highlighting' \
-    'prompt'
+    zstyle ':prezto:load' pmodule \
+        'environment' \
+        'terminal' \
+        'git' \
+        'autosuggestions' \
+        'editor' \
+        'homebrew' \
+        'history' \
+        'directory' \
+        'spectrum' \
+        'k' \
+        'command-not-found' \
+        'utility' \
+        'completion' \
+        'fasd' \
+        'archive' \
+        'python' \
+        'osx' \
+        'history-substring-search' \
+        'syntax-highlighting' \
+        'prompt'
+elif [[ $OSTYPE == *linux* ]]; then
+    zstyle ':prezto:load' pmodule \
+        'environment' \
+        'terminal' \
+        'git' \
+        'autosuggestions' \
+        'editor' \
+        'history' \
+        'directory' \
+        'spectrum' \
+        'k' \
+        'command-not-found' \
+        'utility' \
+        'completion' \
+        'fasd' \
+        'python' \
+        'dpkg' \
+        'history-substring-search' \
+        'syntax-highlighting' \
+        'prompt'
 fi
 
 #

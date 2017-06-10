@@ -8,7 +8,7 @@
 
 # Return if requirements are not found.
 if (( ! $+commands[yum] )); then
-  return 1
+    return 1
 fi
 
 #

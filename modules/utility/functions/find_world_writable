@@ -1,6 +1,6 @@
 #find all files owned by root (u0), world-writable (W), more than 10k in size (Lk+10) and modified during the last hour (m0)
 function find_world_writable() {
-  ls **/*(u0WLk+10m0)
+    ls **/*(u0WLk+10m0)
 }
 
 find_world_writable "$@"

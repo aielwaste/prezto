@@ -12,7 +12,7 @@ pmodload 'ruby'
 
 # Return if requirements are not found.
 if (( ! $+commands[bundle] )); then
-  return 1
+    return 1
 fi
 
 #
