@@ -1,4 +1,5 @@
-# Customize to your needs...
+#!/bin/zsh
+#
 #
 # Executes commands at the start of an interactive session.
 #
@@ -7,6 +8,13 @@
 #   Pablo Olmos de Aguilera <pablo at glatelier dot org>
 #   Andrew Bell <andrewbell8@gmail.com>
 #
+
+# If I see that zsh takes to much time to load I profile what has been changed,
+# I want to see my shell ready in not more than 1 second
+PROFILING=${PROFILING:-false}
+if $PROFILING; then
+    zmodload zsh/zprof
+fi
 
 export TERM="xterm-256color"
 
@@ -29,4 +37,14 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
     source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 else
     echo 'Prezto not installed!.'
+fi
+
+# fix for Tilix
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+    source /etc/profile.d/vte.sh
+fi
+
+# if profiling was on
+if $PROFILING; then
+    zprof
 fi
