@@ -1,0 +1,44 @@
+#!/bin/zsh
+#
+# Andrew Bell <andrew@fr1v.org>
+# Fr1v <http://fr1v.org>
+#
+# 2017.06.21
+#
+# Install Homebrew <https://brew.sh> on MacOS or Linuxbrew <https://linuxbrew.sh> on Ubuntu
+
+if [[ $OSTYPE == *darwin* ]] ; then
+    function install_brew() {
+        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+        PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+        MANPATH="$(brew --prefix coreutils)/libexec/gnuman:/usr/local/share/man:$MANPATH"
+        export PATH MANPATH
+
+        echo "Installing Homebrew Cask <https://caskroom.github.io>..."
+        brew tap caskroom/cask
+        echo "Homebrew Cask installation complete."
+    }
+elif [[ $OSTYPE == *linux* ]] ; then
+    function install_brew() {
+        local INSTALL_DIR="/home/$USER"
+
+        # git check
+        if [[ -z $(which git) ]] ; then
+            sudo apt-get install git
+        fi
+
+        git clone --recursive https://github.com/Linuxbrew/brew.git "$INSTALL_DIR"/.linuxbrew
+
+        PATH="${INSTALL_DIR:-$HOME}/.linuxbrew/bin:$PATH"
+        MANPATH="$(brew --prefix)/share/man:$MANPATH"
+        INFOPATH="$(brew --prefix)/share/info:$INFOPATH"
+        export PATH MANPATH INFOPATH
+
+        echo "Installing Homebrew Cask <https://caskroom.github.io>..."
+        brew tap caskroom/cask
+        echo "Homebrew Cask installation complete."
+    }
+fi
+
+install_brew "$@"
