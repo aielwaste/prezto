@@ -1,0 +1,20 @@
+#!/bin/zsh
+#
+# Andrew Bell <andrew@fr1v.org>
+# Fr1v <http://fr1v.org>
+#
+# 2017.06.12
+
+function prompt_zsh_showStatus () {
+    local color='%F{white}'
+    state=$(osascript -e 'tell application "Spotify" to player state as string')
+
+    if [ $state == "playing" ]; then
+        artist=$(osascript -e 'tell application "Spotify" to artist of current track as string')
+        track=$(osascript -e 'tell application "Spotify" to name of current track as string')
+
+        echo -n "%{$color%}  $artist - $track "
+    fi
+}
+
+prompt_zsh_showStatus "$@"
