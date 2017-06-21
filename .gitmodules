@@ -22,3 +22,6 @@
 [submodule "modules/k"]
     path = modules/k
     url = https://github.com/supercrabtree/k.git
+[submodule "modules/keybase"]
+	path = modules/keybase
+	url = https://github.com/ajb3ll/keybase_zsh
