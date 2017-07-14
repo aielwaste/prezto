@@ -34,7 +34,6 @@ if [[ $OSTYPE == *darwin* ]]; then
         'autosuggestions' \
         'editor' \
         'homebrew' \
-        'keybase' \
         'history' \
         'directory' \
         'spectrum' \
@@ -57,7 +56,6 @@ elif [[ $OSTYPE == *linux* ]]; then
         'autosuggestions' \
         'editor' \
         'homebrew' \
-        'keybase' \
         'history' \
         'directory' \
         'spectrum' \
@@ -67,7 +65,7 @@ elif [[ $OSTYPE == *linux* ]]; then
         'completion' \
         'fasd' \
         'python' \
-        'dpkg' \
+        'pacman' \
         'history-substring-search' \
         'syntax-highlighting' \
         'prompt'
@@ -95,7 +93,7 @@ zstyle ':prezto:module:editor' dot-expansion 'yes'
 #
 
 # Ignore submodules when they are 'dirty', 'untracked', 'all', or 'none'.
-zstyle ':prezto:module:git:status:ignore' submodules 'dirty'
+zstyle ':prezto:module:git:status:ignore' submodules 'all'
 
 #
 # GNU Utility
@@ -122,8 +120,8 @@ zstyle ':prezto:module:git:status:ignore' submodules 'dirty'
 #
 
 # Set the Pacman frontend.
-# zstyle ':prezto:module:pacman' frontend 'pacman'
-# zstyle ':prezto:module:pacman' noconfirm 'yes'
+zstyle ':prezto:module:pacman' frontend 'packer'
+zstyle ':prezto:module:pacman' noconfirm 'yes'
 
 #
 # Prompt
@@ -132,7 +130,7 @@ zstyle ':prezto:module:git:status:ignore' submodules 'dirty'
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
-zstyle ':prezto:module:prompt' theme 'powerlevel9k'
+zstyle ':prezto:module:prompt' theme 'sorin'
 
 #
 # Python
@@ -153,7 +151,7 @@ zstyle ':prezto:module:ruby:chruby' auto-switch 'yes'
 #
 
 # Set the SSH identities to load into the agent.
-zstyle ':prezto:module:ssh:load' identities 'fr1v.org.id_rsa' 'frivbook_id_rsa'
+zstyle ':prezto:module:ssh:load' identities 'id_rsa'
 
 #
 # Syntax Highlighting
@@ -203,6 +201,6 @@ zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 # iterm
 #
 
-if [[ $OSTYPE == *darwin* ]] ; then
-    zstyle ':prezto:module:tmux:iterm' integrate 'yes'
-fi
+# if [[ $OSTYPE == *darwin* ]] ; then
+#     zstyle ':prezto:module:tmux:iterm' integrate 'yes'
+# fi
