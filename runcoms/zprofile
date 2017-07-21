@@ -30,14 +30,6 @@ if [[ $OSTYPE == *darwin* ]]; then
 
     if [[ -f "${ZDOTDIR:-$HOME}"/.secrets ]]; then
         source "${ZDOTDIR:-$HOME}"/.secrets
-    else
-        # keybase check
-        if [[ -z $(which keybase) ]] ; then
-            brew cask install keybase
-        fi
-
-        ln -sf /keybase/private/fr1v "${ZDOTDIR:-$HOME}"/.secrets
-        source "${ZDOTDIR:-$HOME}"/.secrets
     fi
 
     #
