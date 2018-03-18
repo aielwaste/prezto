@@ -8,6 +8,11 @@
 
 
 #
+# homebrew token
+#
+export HOMEBREW_GITHUB_API_TOKEN="cc9f7eb85ff4e70424c9f16664d8b3c2d9dd2349"
+
+#
 # user bin
 #
 
