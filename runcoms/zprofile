@@ -87,6 +87,12 @@ if [[ $OSTYPE == *darwin* ]]; then
     if [[ -s "$NVM_DIR"/nvm.sh ]]; then
         source "$NVM_DIR"/nvm.sh
     fi
+    
+    #
+    # command-not-found
+    #
+    
+    if brew command command-not-found-init > /dev/null 2>&1; then eval "$(brew command-not-found-init)"; fi
 
 
 #
