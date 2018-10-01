@@ -13,19 +13,6 @@
 export HOMEBREW_GITHUB_API_TOKEN="cc9f7eb85ff4e70424c9f16664d8b3c2d9dd2349"
 
 #
-# user bin
-#
-
-if [[ -d "${ZDOTDIR:-$HOME}"/Dropbox/bin ]] && [[ ! -d "${ZDOTDIR:-$HOME}"/bin ]]; then
-    ln -sv "${ZDOTDIR:-$HOME}"/Dropbox/bin "${ZDOTDIR:-$HOME}"/bin
-fi
-
-USER_BIN="${ZDOTDIR:-$HOME}"/bin
-DROPBOX_BIN="${ZDOTDIR:-$HOME}"/Dropbox/bin
-export USER_BIN DROPBOX_BIN
-
-
-#
 # macos path setup
 #
 
@@ -87,11 +74,11 @@ if [[ $OSTYPE == *darwin* ]]; then
     if [[ -s "$NVM_DIR"/nvm.sh ]]; then
         source "$NVM_DIR"/nvm.sh
     fi
-    
+
     #
     # command-not-found
     #
-    
+
     if brew command command-not-found-init > /dev/null 2>&1; then eval "$(brew command-not-found-init)"; fi
 
 
@@ -117,15 +104,15 @@ elif [[ $OSTYPE == *linux* ]]; then
     if [[ -f "${ZDOTDIR:-$HOME}"/.cargo/bin ]]; then
         PATH="${ZDOTDIR:-$HOME}"/.cargo/bin:"$PATH"; export PATH
     fi
-    
-    
+
+
     #
     # linuxbrew
     #
 
-    if [[ -z $(which brew) ]] ; then
-        install_brew
-    fi
+   if [[ -z $(which brew) ]] ; then
+		 install_brew
+	 fi
 
     # PATH="$HOME/.linuxbrew/bin:$PATH"
     # MANPATH="$(brew --prefix)/share/man:$MANPATH"
@@ -143,7 +130,6 @@ elif [[ $OSTYPE == *linux* ]]; then
         /usr/{bin,sbin}
         $path
     )
-
 
     #
     # go

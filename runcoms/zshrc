@@ -9,9 +9,6 @@
 #   Andrew Bell <andrewbell8@gmail.com>
 #
 
-autoload -Uz promptinit
-promptinit
-prompt agnoster
 
 # If I see that zsh takes to much time to load I profile what has been changed,
 # I want to see my shell ready in not more than 1 second
