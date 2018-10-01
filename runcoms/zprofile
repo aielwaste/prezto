@@ -102,7 +102,7 @@ if [[ $OSTYPE == *darwin* ]]; then
 elif [[ $OSTYPE == *linux* ]]; then
 
     # Ensure path arrays do not contain duplicates.
-    typeset -gU cdpath dfpath mailpath path
+    typeset -gU cdpath fpath mailpath path
 
     export BROWSER='xdg-open'
 
@@ -110,7 +110,15 @@ elif [[ $OSTYPE == *linux* ]]; then
         source "${ZDOTDIR:-$HOME}"/.secrets
     fi
 
+    #
+    # cargo
+    #
 
+    if [[ -f "${ZDOTDIR:-$HOME}"/.cargo/bin ]]; then
+        PATH="${ZDOTDIR:-$HOME}"/.cargo/bin:"$PATH"; export PATH
+    fi
+    
+    
     #
     # linuxbrew
     #
@@ -128,6 +136,7 @@ elif [[ $OSTYPE == *linux* ]]; then
     #
     # fpath
     #
+    fpath+=~/.zfunc
 
     path=(
         "${ZDOTDIR:-$HOME}"/bin
