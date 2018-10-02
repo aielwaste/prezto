@@ -22,6 +22,3 @@
 [submodule "modules/k"]
 	path = modules/k
 	url = https://github.com/supercrabtree/k.git
-[submodule "modules/prompt/external/hyperzsh"]
-	path = modules/prompt/external/hyperzsh
-	url = https://github.com/tylerreckart/hyperzsh.git
